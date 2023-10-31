@@ -1,42 +1,26 @@
 package com.example.calcit;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Objects;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class CalcitApplication {
 
 		public static void main(String[] args) {
+			SpringApplication.run(CalcitApplication.class, args);
+			String url = "jdbc:mysql://localhost:3306/calcit?useSSL=false";
+			try {
+				String username = "root";
+				String password = "";
+				Connection c = DriverManager.getConnection(url, username, password);
+				System.out.println("DZIALA");
 
-		try {
-			connectToFirebase();
-		} catch (IOException e) {
-			System.out.println("Couldn't connect to firebase!");
+			} catch (Exception e) {
+				System.out.println("NIE DZIALA " + e.getMessage());
+			}
 		}
-		
-
-		SpringApplication.run(CalcitApplication.class, args);
-	}
-
-	private static void connectToFirebase() throws IOException{
-		ClassLoader classLoader = CalcitApplication.class.getClassLoader();
-		File file = new File(Objects.requireNonNull(classLoader.getResource("serviceAccountKey.json")).getFile());
-		FileInputStream serviceAccount = new FileInputStream(file.getAbsolutePath());
-
-		FirebaseOptions options = new FirebaseOptions.Builder()
-  			.setCredentials(GoogleCredentials.fromStream(serviceAccount))
-  			.build();
-
-		FirebaseApp.initializeApp(options);
-	}
-
 }
