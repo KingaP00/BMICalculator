@@ -1,13 +1,10 @@
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
-//colors
-$color-primary: #54EA54;
-$color-secondary: #373737;
-$base-white: #FFF;
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-html {
-    font-size: 62.5%;
-}
-
-body {
-    box-sizing: border-box;
-}
+@import "pages/home";
