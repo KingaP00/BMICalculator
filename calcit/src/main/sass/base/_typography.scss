@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+}
+
+.heading-primary {
+    position: relative;
+    z-index: 10;
+    color: $color-secondary;
+    margin-bottom: 4rem;
+
+    &--main {
+        text-transform: uppercase;
+        display: block;
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 5rem;
+
+        @include respond(tab-port) {
+            margin-bottom: 2rem;
+            font-size: 3.5rem;
+        }
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 4rem;
+        font-weight: 400;
+
+        @include respond(tab-port) {
+            font-size: 2.5rem;
+        }
+    }
+}
