@@ -5,21 +5,58 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="stylesheet" href="../../css/style.css">
-	<title>Demo</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+	<title>Health calculator</title>
 	<meta name="description" content="" />
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="/" />
 </head>
 
 <body>
-	<header>
-		<h1>Demo</h1>
-	</header>
-	<main>
-		<div class="container">
-			<div id="greeting">Hello World</div>
+	<div class="home">
+		<div class="home__inside-background">
+
+			<div class="navigation">
+				<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+		
+				<label for="navi-toggle" class="navigation__button">
+					<span class="navigation__icon">&nbsp;</span>
+				</label>
+		
+				<div class="navigation__background">&nbsp;</div>
+		
+				<nav class="navigation__nav">
+					<ul class="navigation__list">
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="home__logo-box">
+				<img src="BMICalculator/calcit/src/main/resources/static/img/logo.svg" alt="Logo" class="home__logo">
+			</div>
+
+			<div class="home__text-box">
+				<h1 class="heading-primary">
+					<span class="heading-primary--main">Your health calculator</span>
+					<span class="heading-primary--sub">take your health into account</span>
+				</h1>
+
+				<a href="" class="btn btn--green">Sign up</a>
+				<a href="" class="btn btn--gray">Log in</a>
+			</div>
+
+			<img src="BMICalculator/calcit/src/main/resources/static/img/line.svg" alt="" class="home__line">
+			<img src="BMICalculator/calcit/src/main/resources/static/img/food.png" alt="" class="home__food">
+			<img src="BMICalculator/calcit/src/main/resources/static/img/fork.png" alt="" class="home__fork">
 		</div>
-	</main>
+	</div>
 
 </body>
 
