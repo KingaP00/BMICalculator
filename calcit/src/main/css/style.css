@@ -1,3 +1,18 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
 body {
   text-align: center;
   font-family: 'Kodchasan', sans-serif;
@@ -17,18 +32,17 @@ body {
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 5rem; }
+    @media only screen and (max-width: 56.25em) {
+      .heading-primary--main {
+        margin-bottom: 2rem;
+        font-size: 3.5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 4rem;
     font-weight: 400; }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
+    @media only screen and (max-width: 56.25em) {
+      .heading-primary--sub {
+        font-size: 2.5rem; } }
 
 *,
 *::after,
@@ -46,6 +60,68 @@ body {
   height: 100%;
   background-image: linear-gradient(100deg, #A2F7A1 9.64%, rgba(198, 245, 181, 0.7) 55.85%, rgba(224, 244, 195, 0.53) 81.27%, rgba(243, 244, 205, 0.41) 100%);
   padding: 2rem 8rem; }
+  @media only screen and (max-width: 37.5em) {
+    body {
+      padding: 1rem 2rem; } }
+
+.btn, .btn:link, .btn:visited {
+  width: 18rem;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 0.8rem;
+  transition: all .2s;
+  position: relative;
+  z-index: 10;
+  font-size: 2.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border: none;
+  cursor: pointer; }
+  @media only screen and (max-width: 56.25em) {
+    .btn, .btn:link, .btn:visited {
+      width: 14.8rem;
+      font-size: 1.8rem;
+      margin-left: 1rem;
+      margin-right: 1rem; } }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
+
+.btn:active, .btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn--gray {
+  background-color: #373737;
+  color: #FFF; }
+  .btn--gray::after {
+    background-color: #373737; }
+
+.btn--green {
+  background-color: #54EA54;
+  color: #FFF; }
+  .btn--green::after {
+    background-color: #54EA54; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s; }
 
 .home {
   position: relative;
@@ -65,10 +141,19 @@ body {
     background-position: center center;
     border-radius: 8px;
     box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
+    @media only screen and (max-width: 37.5em) {
+      .home__inside-background {
+        background-image: url("/BMICalculator/calcit/src/main/resources/static/img/inside-background-mobile.png"); } }
   .home__logo-box {
     position: absolute;
+    z-index: 10;
     top: 5rem;
     left: 4rem; }
+    @media only screen and (max-width: 56.25em) {
+      .home__logo-box {
+        top: 3rem; } }
+  .home__text-box {
+    padding: 1rem; }
   .home__line {
     position: absolute;
     width: 100%;
@@ -81,11 +166,23 @@ body {
     height: 70%;
     left: 0;
     bottom: 0; }
+    @media only screen and (max-width: 75em) {
+      .home__food {
+        height: 50%; } }
+    @media only screen and (max-width: 37.5em) {
+      .home__food {
+        height: 45%; } }
   .home__fork {
     position: absolute;
     height: 30%;
     right: 0;
     bottom: 0; }
+    @media only screen and (max-width: 75em) {
+      .home__fork {
+        height: 20%; } }
+    @media only screen and (max-width: 37.5em) {
+      .home__fork {
+        height: 12%; } }
 
 .navigation__checkbox {
   display: none; }
@@ -102,6 +199,10 @@ body {
   box-shadow: 0 1rem 3rem rgba(55, 55, 55, 0.1);
   text-align: center;
   cursor: pointer; }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__button {
+      top: 5rem;
+      right: 5rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -113,6 +214,10 @@ body {
   background-color: #373737;
   z-index: 1000;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__background {
+      top: 5.5rem;
+      right: 5.5rem; } }
 
 .navigation__nav {
   height: 100vh;
@@ -147,6 +252,9 @@ body {
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #FFF 50%);
   background-size: 220%;
   transition: all .4s; }
+  @media only screen and (max-width: 37.5em) {
+    .navigation__link:link, .navigation__link:visited {
+      font-size: 1.8rem; } }
   .navigation__link:link span, .navigation__link:visited span {
     margin-right: 1.5rem;
     display: inline-block; }
@@ -197,54 +305,3 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-135deg); }
-
-.btn, .btn:link, .btn:visited {
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 0.8rem;
-  transition: all .2s;
-  position: relative;
-  z-index: 10;
-  font-size: 2.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-left: 3rem;
-  margin-right: 3rem;
-  border: none;
-  cursor: pointer; }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
-
-.btn:active, .btn:focus {
-  outline: none;
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--gray {
-  background-color: #373737;
-  color: #FFF; }
-  .btn--gray::after {
-    background-color: #373737; }
-
-.btn--green {
-  background-color: #54EA54;
-  color: #FFF; }
-  .btn--green::after {
-    background-color: #54EA54; }
-
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 0.8rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s; }
