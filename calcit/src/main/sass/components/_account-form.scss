@@ -18,6 +18,10 @@
         @include respond(big-desktop) {
             margin-bottom: 5rem;
         }
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
     }
 
     &__element:not(:last-child) {
@@ -41,6 +45,10 @@
 
         @include respond(big-desktop) {
             padding: 2.2rem 12rem;
+        }
+
+        @include respond(phone) {
+            padding: 1.5rem 2rem;
         }
     }
 

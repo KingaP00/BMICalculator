@@ -200,6 +200,9 @@ body {
     @media only screen and (min-width: 112.5em) {
       .account-form__title {
         margin-bottom: 5rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .account-form__title {
+        font-size: 2rem; } }
   .account-form__element:not(:last-child) {
     margin-bottom: 2rem; }
     @media only screen and (min-width: 112.5em) {
@@ -218,6 +221,9 @@ body {
     @media only screen and (min-width: 112.5em) {
       .account-form__input {
         padding: 2.2rem 12rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .account-form__input {
+        padding: 1.5rem 2rem; } }
   .account-form__input:hover, .account-form__input:focus {
     border: 0.4rem solid #54EA54; }
   .account-form input:focus {
@@ -243,7 +249,10 @@ body {
   left: 0; }
 
 .registration .main-container__inside-background {
-  padding: 10rem 30rem 10rem 30rem; }
+  padding: 8rem 25rem 8rem 25rem; }
+  @media only screen and (max-width: 75em) {
+    .registration .main-container__inside-background {
+      padding: 10rem 5rem 10rem 5rem; } }
   @media only screen and (min-width: 112.5em) {
     .registration .main-container__inside-background {
       padding: 20rem 50rem 20rem 50rem; } }
@@ -257,9 +266,15 @@ body {
   border-radius: 0.8rem;
   background-image: linear-gradient(111deg, #2F2E2E 8.44%, #373737 24.58%, #3E3D3D 56.87%, #2F2E2E 100%);
   box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
+  @media only screen and (max-width: 56.25em) {
+    .registration__background {
+      grid-template-columns: 100%; } }
 
 .registration__right-container {
   position: relative; }
+  @media only screen and (max-width: 56.25em) {
+    .registration__right-container {
+      display: none; } }
 
 .registration__left-container {
   display: flex;
@@ -408,6 +423,16 @@ body {
   font-weight: 400;
   margin-bottom: 3rem;
   padding: 0 15rem; }
+  @media only screen and (max-width: 56.25em) {
+    .header {
+      justify-content: space-between;
+      margin-top: 5rem;
+      margin-bottom: 1rem;
+      padding: 0 10rem;
+      font-size: 2rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 0 5rem; } }
   .header__element {
     all: unset;
     position: relative;
