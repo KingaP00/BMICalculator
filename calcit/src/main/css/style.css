@@ -123,12 +123,12 @@ body {
   z-index: -1;
   transition: all .4s; }
 
-.home {
+.main-container {
   position: relative;
   width: 100%;
   height: 100%;
   margin: auto; }
-  .home__inside-background {
+  .main-container__inside-background {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,50 +139,159 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
     @media only screen and (max-width: 37.5em) {
-      .home__inside-background {
+      .main-container__inside-background {
         background-image: url("/BMICalculator/calcit/src/main/resources/static/img/inside-background-mobile.png"); } }
-  .home__logo-box {
+  .main-container__logo-box {
     position: absolute;
     z-index: 10;
     top: 5rem;
     left: 4rem; }
     @media only screen and (max-width: 56.25em) {
-      .home__logo-box {
+      .main-container__logo-box {
         top: 3rem; } }
-  .home__text-box {
+  .main-container__text-box {
     padding: 1rem; }
-  .home__line {
+  .main-container__line {
     position: absolute;
     width: 100%;
     top: 10rem;
     right: 0;
     bottom: 0;
     left: 0; }
-  .home__food {
+  .main-container__food {
     position: absolute;
     height: 70%;
     left: 0;
     bottom: 0; }
     @media only screen and (max-width: 75em) {
-      .home__food {
+      .main-container__food {
         height: 50%; } }
     @media only screen and (max-width: 37.5em) {
-      .home__food {
+      .main-container__food {
         height: 45%; } }
-  .home__fork {
+  .main-container__fork {
     position: absolute;
     height: 30%;
     right: 0;
     bottom: 0; }
     @media only screen and (max-width: 75em) {
-      .home__fork {
+      .main-container__fork {
         height: 20%; } }
     @media only screen and (max-width: 37.5em) {
-      .home__fork {
+      .main-container__fork {
         height: 12%; } }
+
+.account-form {
+  position: relative;
+  z-index: 10; }
+  .account-form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .account-form__title {
+    margin: auto;
+    margin-bottom: 2rem;
+    color: #FFF;
+    font-size: 2.5rem;
+    font-weight: 400; }
+    @media only screen and (min-width: 112.5em) {
+      .account-form__title {
+        margin-bottom: 5rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .account-form__title {
+        font-size: 2rem; } }
+  .account-form__element:not(:last-child) {
+    margin-bottom: 2rem; }
+    @media only screen and (min-width: 112.5em) {
+      .account-form__element:not(:last-child) {
+        margin-bottom: 5rem; } }
+  .account-form__input {
+    font-size: 1.2rem;
+    font-family: inherit;
+    padding: 1.8rem 7rem;
+    border-radius: 0.8rem;
+    color: #C1C4CE;
+    background-color: #FFF;
+    border: none;
+    text-align: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); }
+    @media only screen and (min-width: 112.5em) {
+      .account-form__input {
+        padding: 2.2rem 12rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .account-form__input {
+        padding: 1.5rem 2rem; } }
+  .account-form__input:hover, .account-form__input:focus {
+    border: 0.4rem solid #54EA54; }
+  .account-form input:focus {
+    outline: none; }
+  .account-form__text {
+    font-size: 1.2rem;
+    color: #FFF; }
+  .account-form__text > a:hover {
+    transform: translateY(-3px); }
+  .account-form__text--green {
+    text-transform: uppercase;
+    color: #54EA54; }
+
+.home__text-box {
+  padding: 1rem; }
+
+.home__line {
+  position: absolute;
+  width: 100%;
+  top: 10rem;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.registration .main-container__inside-background {
+  padding: 8rem 25rem 8rem 25rem; }
+  @media only screen and (max-width: 75em) {
+    .registration .main-container__inside-background {
+      padding: 10rem 5rem 10rem 5rem; } }
+  @media only screen and (min-width: 112.5em) {
+    .registration .main-container__inside-background {
+      padding: 20rem 50rem 20rem 50rem; } }
+
+.registration__background {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(111deg, #2F2E2E 8.44%, #373737 24.58%, #3E3D3D 56.87%, #2F2E2E 100%);
+  box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
+  @media only screen and (max-width: 56.25em) {
+    .registration__background {
+      grid-template-columns: 100%; } }
+
+.registration__right-container {
+  position: relative; }
+  @media only screen and (max-width: 56.25em) {
+    .registration__right-container {
+      display: none; } }
+
+.registration__left-container {
+  display: flex;
+  align-items: center;
+  justify-self: center; }
+
+.registration__line {
+  position: absolute;
+  width: 100%;
+  top: 5rem;
+  right: 0; }
+
+.registration__hand {
+  position: absolute;
+  width: 95%;
+  right: 0;
+  bottom: 0; }
 
 .navigation__checkbox {
   display: none; }
@@ -305,3 +414,39 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-135deg); }
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  color: #373737;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  padding: 0 15rem; }
+  @media only screen and (max-width: 56.25em) {
+    .header {
+      justify-content: space-between;
+      margin-top: 5rem;
+      margin-bottom: 1rem;
+      padding: 0 10rem;
+      font-size: 2rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      padding: 0 5rem; } }
+  .header__element {
+    all: unset;
+    position: relative;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+  .header__element:hover {
+    transform: translateY(-3px); }
+  .header__element--active::before {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 0.5rem;
+    bottom: 0;
+    border-bottom: 0.5rem solid #54EA54; }
