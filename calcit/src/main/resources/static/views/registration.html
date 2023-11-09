@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../../../css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+	<title>Registration page</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="/" />
+</head>
+<body>
+    <div class="main-container registration">
+		<div class="main-container__inside-background">
+
+			<div class="navigation">
+				<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+		
+				<label for="navi-toggle" class="navigation__button">
+					<span class="navigation__icon">&nbsp;</span>
+				</label>
+		
+				<div class="navigation__background">&nbsp;</div>
+		
+				<nav class="navigation__nav">
+					<ul class="navigation__list">
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="main-container__logo-box">
+				<img src="BMICalculator/calcit/src/main/resources/static/img/logo.svg" alt="Logo" class="main-container__logo">
+			</div>
+
+            <div class="header">
+                <a href="" class="header__element">Home</a>
+                <a href="" class="header__element header__element--active">Sign up</a>
+            </div>
+
+            <div class="registration__background">
+                <div class="registration__left-container">
+                    <div class="account-form">
+                        <form action="#" class="account-form__container">
+                            <p class="account-form__title">Create account</p>
+    
+                            <div class="account-form__element">
+                                <input type="email" class="account-form__input" placeholder="Enter your email" id="email" required>
+                            </div>
+    
+                            
+                            <div class="account-form__element">
+                                <input type="password" class="account-form__input" placeholder="Enter your password" id="password" required>
+                            </div>
+                            
+                            <div class="account-form__element">
+                                <input type="password" class="account-form__input" placeholder="Confirm your password" id="confirm-password" required>
+                            </div>
+    
+                            <p class="account-form__text">Already have an account? <a href="" class="account-form__text account-form__text--green">Log in</a></p>
+                        </form>
+                    </div>
+                    <picture>
+                        <source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/static/img/line.svg">
+                        <img src="BMICalculator/calcit/src/main/resources/static/img/line-mobile.svg" alt="" class="registration__line">
+                    </picture>
+                </div>
+                
+                <div class="registration__right-container">
+                    <img src="BMICalculator/calcit/src/main/resources/static/img/hand.png" alt="" class="registration__hand">
+                </div>
+                
+			</div>
+			<img src="BMICalculator/calcit/src/main/resources/static/img/food.png" alt="" class="main-container__food">
+			<img src="BMICalculator/calcit/src/main/resources/static/img/fork.png" alt="" class="main-container__fork">
+		</div>
+	</div>
+
+</body>
+
+</html>
