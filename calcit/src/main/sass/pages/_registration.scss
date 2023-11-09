@@ -44,8 +44,12 @@
     &__line {
         position: absolute;
         width: 100%;
-        top: 5rem;
+        top: 6rem;
         right: 0;
+
+        @include respond(big-desktop) {
+            top: 12rem;
+        }
     }
 
     &__hand {
