@@ -56,10 +56,26 @@
 
     &--green {
         background-color: $color-primary;
-        color: $color-white;
+        color: $color-secondary;
 
         &::after {
             background-color: $color-primary;
+        }
+    }
+
+    &--form {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+        background-color: $color-primary;
+        color: $color-secondary;
+
+        &::after {
+            background-color: $color-primary;
+        }
+
+        @include respond(phone) {
+            width: 50%;
         }
     }
     

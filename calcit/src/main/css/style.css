@@ -107,9 +107,21 @@ body {
 
 .btn--green {
   background-color: #54EA54;
-  color: #FFF; }
+  color: #373737; }
   .btn--green::after {
     background-color: #54EA54; }
+
+.btn--form {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  background-color: #54EA54;
+  color: #373737; }
+  .btn--form::after {
+    background-color: #54EA54; }
+  @media only screen and (max-width: 37.5em) {
+    .btn--form {
+      width: 50%; } }
 
 .btn::after {
   content: "";
@@ -192,14 +204,13 @@ body {
     flex-direction: column;
     align-items: center; }
   .account-form__title {
-    margin: auto;
-    margin-bottom: 2rem;
+    padding: 2rem;
     color: #FFF;
     font-size: 2.5rem;
     font-weight: 400; }
     @media only screen and (min-width: 112.5em) {
       .account-form__title {
-        margin-bottom: 5rem; } }
+        padding-bottom: 5rem; } }
     @media only screen and (max-width: 56.25em) {
       .account-form__title {
         font-size: 2rem; } }
@@ -284,8 +295,11 @@ body {
 .registration__line {
   position: absolute;
   width: 100%;
-  top: 5rem;
+  top: 6rem;
   right: 0; }
+  @media only screen and (min-width: 112.5em) {
+    .registration__line {
+      top: 12rem; } }
 
 .registration__hand {
   position: absolute;
