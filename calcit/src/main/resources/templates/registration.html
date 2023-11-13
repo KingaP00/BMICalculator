@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE-edge" />
-	<link rel="stylesheet" href="../../../css/style.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
@@ -37,13 +37,13 @@
 					<!-- Input field to confirm password -->
 					<input type="password" class="account-form__input" placeholder="Confirm your password" id="confirm-password" required>
 				</div>
-				<p class="account-form__text">Already have an account? <a href="/BMICalculator/calcit/src/main/resources/static/views/login.html" class="account-form__text account-form__text--green">Log in</a></p>
+				<p class="account-form__text">Already have an account? <a href="/BMICalculator/calcit/src/main/resources/templates/login.html" class="account-form__text account-form__text--green">Log in</a></p>
 				<button type="submit" class="btn btn--green btn--form">Sign up</button>
 			</form>
 		</div>
 		<picture>
-			<source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/static/img/line.svg">
-			<img src="BMICalculator/calcit/src/main/resources/static/img/line-mobile.svg" alt="" class="registration__line">
+			<source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/img/line.svg">
+			<img src="BMICalculator/calcit/src/main/resources/img/line-mobile.svg" alt="" class="registration__line">
 		</picture>
 	</div>
 </div>

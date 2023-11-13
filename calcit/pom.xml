@@ -64,6 +64,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.2.6.Final</version>
         </dependency>
+        <dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring6</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

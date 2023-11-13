@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
 			</div>
 
 			<div class="main-container__logo-box">
-				<img src="BMICalculator/calcit/src/main/resources/static/img/logo.svg" alt="Logo" class="main-container__logo">
+				<img th:src="@{/images/logo.svg}" alt="Logo" class="main-container__logo">
 			</div>
 
             <div class="header">
@@ -61,24 +61,24 @@
                                 <input type="password" class="account-form__input" placeholder="Enter your password" id="password" required>
                             </div>
                             
-                            <p class="account-form__text">Don't have an account? <a href="/BMICalculator/calcit/src/main/resources/static/views/registration.html" class="account-form__text account-form__text--green">Sign up</a></p>
+                            <p class="account-form__text">Don't have an account? <a href="/BMICalculator/calcit/src/main/resources/templates/registration.html" class="account-form__text account-form__text--green">Sign up</a></p>
 
                             <button type="submit" class="btn btn--green btn--form">Log in</button>
                         </form>
                     </div>
                     <picture>
-                        <source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/static/img/line.svg">
-                        <img src="BMICalculator/calcit/src/main/resources/static/img/line-mobile.svg" alt="" class="registration__line">
+                        <source media="(min-width:600px)" th:srcset="@{/images/line.svg}">
+                        <img th:src="@{/images/line-mobile.svg}" alt="" class="registration__line">
                     </picture>
                 </div>
                 
                 <div class="registration__right-container">
-                    <img src="BMICalculator/calcit/src/main/resources/static/img/hand.png" alt="" class="registration__hand">
+                    <img th:src="@{/images/hand.png}" alt="" class="registration__hand">
                 </div>
                 
 			</div>
-			<img src="BMICalculator/calcit/src/main/resources/static/img/food.png" alt="" class="main-container__food">
-			<img src="BMICalculator/calcit/src/main/resources/static/img/fork.png" alt="" class="main-container__fork">
+			<img th:src="@{/images/food.png}" alt="" class="main-container__food">
+			<img th:src="@{/images/fork.png}" alt="" class="main-container__fork">
 		</div>
 	</div>
 

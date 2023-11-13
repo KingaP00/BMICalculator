@@ -25,54 +25,57 @@ import jakarta.validation.Valid;
 public class UserController {
 
     // private static final Logger logger = Logger
-    //         .getLogger(UserController.class);
+    // .getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
 
     // @RequestMapping(value = "/", method = RequestMethod.GET)
-    // public ModelAndView addUser(@ModelAttribute("user") User user, BindingResult result) {
-    //     Map<String, Object> model = new HashMap<String, Object>();
-    //     model.put("index", new User());
-    //     return new ModelAndView("index", model);
+    // public ModelAndView addUser(@ModelAttribute("user") User user, BindingResult
+    // result) {
+    // Map<String, Object> model = new HashMap<String, Object>();
+    // model.put("index", new User());
+    // return new ModelAndView("index", model);
     // }
 
     // @RequestMapping(value = "/login", method = RequestMethod.GET)
     // public String login(Map model) {
-    //     User user = new User();
-    //     model.put("login", user);
-    //     return "login";
+    // User user = new User();
+    // model.put("login", user);
+    // return "login";
     // }
 
     // @RequestMapping(value = "/loginsuccess", method = RequestMethod.POST)
-    // public String loginsuccess(@Valid User user, BindingResult result, Map model) {
-    //     if (result.hasErrors()) {
-    //         return "login";
-    //     }
+    // public String loginsuccess(@Valid User user, BindingResult result, Map model)
+    // {
+    // if (result.hasErrors()) {
+    // return "login";
+    // }
 
-    //     boolean userExists = userService.checkLogin(user.getUserId(), user.getPassword());
-    //     if (userExists) {
-    //         model.put("user", user);
-    //         return "welcome";
-    //     } else {
-    //         return "login";
-    //     }
+    // boolean userExists = userService.checkLogin(user.getUserId(),
+    // user.getPassword());
+    // if (userExists) {
+    // model.put("user", user);
+    // return "welcome";
+    // } else {
+    // return "login";
+    // }
     // }
 
     // @RequestMapping(value = "/logout", method = RequestMethod.GET)
     // public String logout(Model model) {
-    //     model.addAttribute("title", "Logout");
-    //     return "register";
+    // model.addAttribute("title", "Logout");
+    // return "register";
     // }
 
     // @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     // public ModelAndView saveUser(@ModelAttribute("user") User user) {
-    //     userService.saveOrUpdate(user);
-    //     return new ModelAndView("redirect:/");
+    // userService.saveOrUpdate(user);
+    // return new ModelAndView("redirect:/");
     // }
 
     // @RequestMapping(value="/", method = RequestMethod.GET)
     // public String getHomePage(){
-    //     return "index";
+    // return "index";
     // }
 }
