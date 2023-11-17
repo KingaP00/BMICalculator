@@ -147,7 +147,7 @@ body {
     position: relative;
     height: 100%;
     width: 100%;
-    background-image: url("/BMICalculator/calcit/src/main/resources/static/img/inside-background.png");
+    background-image: url("/BMICalculator/calcit/src/main/resources/img/inside-background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -155,7 +155,7 @@ body {
     box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
     @media only screen and (max-width: 37.5em) {
       .main-container__inside-background {
-        background-image: url("/BMICalculator/calcit/src/main/resources/static/img/inside-background-mobile.png"); } }
+        background-image: url("/BMICalculator/calcit/src/main/resources/img/inside-background-mobile.png"); } }
   .main-container__logo-box {
     position: absolute;
     z-index: 10;
