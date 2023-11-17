@@ -2,24 +2,22 @@ package com.example.calcit.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "user")
 public class User implements Serializable{
     
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private int userId;
 	
 	@Column
 	private String email;
+
+	@Column
+	private String login;
 	
 	@Column
 	private String password;
@@ -30,6 +28,14 @@ public class User implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public int getUserId() {

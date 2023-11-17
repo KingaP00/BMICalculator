@@ -1,87 +1,83 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE-edge" />
 	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap"
+		rel="stylesheet">
 	<title>Registration page</title>
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="/" />
 </head>
+
 <body>
-<div class="main-container registration">
-	<!-- ... (the rest of your HTML code) -->
+	<div class="main-container registration">
+		<!-- ... (the rest of your HTML code) -->
 
-	<div class="registration__left-container">
-		<div class="account-form">
-			<!-- Registration form with validation -->
-			<form action="#" class="account-form__container" onsubmit="return validateForm()">
-				<p class="account-form__title">Create account</p>
-				<div class="account-form__element">
-					<!-- Input field for login -->
-					<input type="text" class="account-form__input" placeholder="Enter your login" id="login" required>
-				</div>
-				<div class="account-form__element">
-					<!-- Input field for email -->
-					<input type="email" class="account-form__input" placeholder="Enter your email" id="email" required>
-				</div>
-				<div class="account-form__element">
-					<!-- Input field for password -->
-					<input type="password" class="account-form__input" placeholder="Enter your password" id="password" required>
-				</div>
-				<div class="account-form__element">
-					<!-- Input field to confirm password -->
-					<input type="password" class="account-form__input" placeholder="Confirm your password" id="confirm-password" required>
-				</div>
-				<p class="account-form__text">Already have an account? <a href="/BMICalculator/calcit/src/main/resources/templates/login.html" class="account-form__text account-form__text--green">Log in</a></p>
-				<button type="submit" class="btn btn--green btn--form">Sign up</button>
-			</form>
+
+		<div class="registration__left-container">
+			<div class="account-form">
+				<!-- Registration form with validation -->
+				<form th:action="@{/registration/save}" th:object="${user}" class="account-form__container" onsubmit="return validateForm()">
+					<p class="account-form__title">Create account</p>
+					<div class="account-form__element">
+						<!-- Input field for login -->
+						<input type="text" name="login" th:field="*{login}" class="account-form__input"
+							placeholder="Enter your login" id="login" required>
+					</div>
+					<div class="account-form__element">
+						<!-- Input field for email -->
+						<input type="email" class="account-form__input" name="email" th:field="*{email}"
+							placeholder="Enter your email" id="email" required>
+					</div>
+					<div class="account-form__element">
+						<!-- Input field for password -->
+						<input type="password" name="password" th:field="*{password}" 
+							class="account-form__input" placeholder="Enter your password" id="password" required>
+					</div>
+					<div class="account-form__element">
+						<!-- Input field to confirm password -->
+						<input type="password" class="account-form__input" 
+							placeholder="Confirm your password" id="confirm-password" required>
+					</div>
+					<p class="account-form__text">Already have an account? <a th:href="@{/login}"
+							class="account-form__text account-form__text--green">Log in</a></p>
+					<button type="submit" class="btn btn--green btn--form">Sign up</button>
+				</form>
+			</div>
+			<picture>
+				<source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/img/line.svg">
+				<img src="BMICalculator/calcit/src/main/resources/img/line-mobile.svg" alt=""
+					class="registration__line">
+			</picture>
 		</div>
-		<picture>
-			<source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/img/line.svg">
-			<img src="BMICalculator/calcit/src/main/resources/img/line-mobile.svg" alt="" class="registration__line">
-		</picture>
+
+
 	</div>
-</div>
 
-<script>
-	function validateForm() {
-        var login = document.getElementById("login").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var confirm_password = document.getElementById("confirm-password").value;
+	<script>
+		function validateForm() {
+		    var password = document.getElementById("password").value;
+		    var confirm_password = document.getElementById("confirm-password").value;
 
-        // Check if password is longer than 12 characters, contains at least one uppercase letter, and a special character
-        var passwordRegex = /^(?=.*[A-Z])(?=.*[\W_])(.{12,})$/;
-        if (!passwordRegex.test(password)) {
-            alert("Password must be at least 12 characters long, contain an uppercase letter, and a special character.");
-            return false;
-        }
+		    var passwordRegex = /^(?=.*[A-Z])(?=.*[\W_])(.{12,})$/;
+		    if (!passwordRegex.test(password)) {
+		        alert("Password must be at least 12 characters long, contain an uppercase letter, and a special character.");
+		        return false;
+		    }
+		    if (password !== confirm_password) {
+		        alert("Passwords do not match.");
+		        return false;
+		    }
 
-        // Check if passwords match
-        if (password !== confirm_password) {
-            alert("Passwords do not match.");
-            return false;
-        }
-
-        // Simulate checking if the login and email are already in the database
-        // Replace this with your actual database checking logic
-        if (login === "existing_login") {
-            alert("Login is already in use.");
-            return false;
-        }
-
-        if (email === "existing_email@example.com") {
-            alert("Email is already registered.");
-            return false;
-        }
-
-        return true;
-    }
-</script>
+		    return true;
+		}
+	</script>
 </body>
+
 </html>

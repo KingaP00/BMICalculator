@@ -1,10 +1,8 @@
 package com.example.calcit.configuration;
 
 import java.util.Properties;
-
-import org.hibernate.SessionFactory;
-
 import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
@@ -12,8 +10,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.example.calcit.model.User;
 
 @Configuration
 @EnableTransactionManagement
@@ -46,12 +46,12 @@ public class HibernateConfiguration {
         return properties;
     }
 
-    @Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
-        HibernateTransactionManager txManager = new HibernateTransactionManager();
-        txManager.setSessionFactory(s);
-        return txManager;
+    @Bean(name="entityManagerFactory")
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setAnnotatedClasses(new Class[] { User.class });
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        return sessionFactory;
     }
-
 }
