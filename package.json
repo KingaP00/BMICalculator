@@ -1,0 +1,23 @@
+{
+  "name": "bmicalculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass calcit/src/main/sass/main.scss calcit/src/main/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingaP00/BMICalculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KingaP00/BMICalculator/issues"
+  },
+  "homepage": "https://github.com/KingaP00/BMICalculator#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

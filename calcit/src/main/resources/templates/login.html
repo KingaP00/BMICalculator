@@ -1,18 +1,87 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>Registration page</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
 </head>
 <body>
-<h2>LoginPage</h2>
-<form method="post" action="/AddLoginForm">
-    <label for="username">User:</label>
-    <input type="text" id="username" name="username">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <br>
-    <input type="submit" value="Login">
-</form>
+<div class="main-container registration">
+    <div class="main-container__inside-background">
+
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main-container__logo-box">
+            <img th:src="@{/images/logo.svg}" alt="Logo" class="main-container__logo">
+        </div>
+
+        <div class="header">
+            <a href="" class="header__element">Home</a>
+            <a href="" class="header__element header__element--active">Sign up</a>
+        </div>
+
+        <div class="registration__background">
+            <div class="registration__left-container">
+                <div class="account-form">
+                    <form action="#" class="account-form__container">
+                        <p class="account-form__title">Log in to your account</p>
+
+                        <div class="account-form__element">
+                            <input type="email" class="account-form__input" placeholder="Enter your email" id="email" required>
+                        </div>
+
+
+                        <div class="account-form__element">
+                            <input type="password" class="account-form__input" placeholder="Enter your password" id="password" required>
+                        </div>
+
+                        <p class="account-form__text">Don't have an account? <a href="/BMICalculator/calcit/src/main/resources/templates/registration.html" class="account-form__text account-form__text--green">Sign up</a></p>
+
+                        <button type="submit" class="btn btn--green btn--form">Log in</button>
+                    </form>
+                </div>
+                <picture>
+                    <source media="(min-width:600px)" th:srcset="@{/images/line.svg}">
+                    <img th:src="@{/images/line-mobile.svg}" alt="" class="registration__line">
+                </picture>
+            </div>
+
+            <div class="registration__right-container">
+                <img th:src="@{/images/hand.png}" alt="" class="registration__hand">
+            </div>
+
+        </div>
+        <img th:src="@{/images/food.png}" alt="" class="main-container__food">
+        <img th:src="@{/images/fork.png}" alt="" class="main-container__fork">
+    </div>
+</div>
+
 </body>
+
 </html>

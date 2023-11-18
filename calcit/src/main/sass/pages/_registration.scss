@@ -1,0 +1,61 @@
+.registration {
+
+    .main-container__inside-background {
+        padding: 8rem 25rem 8rem 25rem;
+
+        @include respond(tab-land) {
+            padding: 10rem 5rem 10rem 5rem;
+        }
+
+        @include respond(big-desktop) {
+            padding: 20rem 50rem 20rem 50rem;
+        }
+    }
+
+    &__background {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.8rem;
+        background-image: linear-gradient(111deg, #2F2E2E 8.44%, #373737 24.58%, #3E3D3D 56.87%, #2F2E2E 100%);
+        box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.50);
+
+        @include respond(tab-port) {
+            grid-template-columns: 100%;
+        }
+    }
+
+    &__right-container {
+        position: relative;
+
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+
+    &__left-container {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+    }
+
+    &__line {
+        position: absolute;
+        width: 100%;
+        top: 6rem;
+        right: 0;
+
+        @include respond(big-desktop) {
+            top: 12rem;
+        }
+    }
+
+    &__hand {
+        position: absolute;
+        width: 95%;
+        right: 0;
+        bottom: 0;
+    }
+}
