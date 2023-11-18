@@ -49,16 +49,15 @@
         <div class="registration__background">
             <div class="registration__left-container">
                 <div class="account-form">
-                    <form action="#" class="account-form__container">
+                    <form th:action="@{/login/loginUser}" th:object="${user}" class="account-form__container" >
                         <p class="account-form__title">Log in to your account</p>
 
                         <div class="account-form__element">
-                            <input type="email" class="account-form__input" placeholder="Enter your email" id="email" required>
+                            <input type="email" class="account-form__input" name="email" th:field="*{email}" placeholder="Enter your email" id="email" required>
                         </div>
 
-
                         <div class="account-form__element">
-                            <input type="password" class="account-form__input" placeholder="Enter your password" id="password" required>
+                            <input type="password" class="account-form__input" name="password" th:field="*{password}" placeholder="Enter your password" id="password" required>
                         </div>
 
                         <p class="account-form__text">Don't have an account? <a href="/BMICalculator/calcit/src/main/resources/templates/registration.html" class="account-form__text account-form__text--green">Sign up</a></p>
