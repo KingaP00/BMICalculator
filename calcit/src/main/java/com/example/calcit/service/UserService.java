@@ -16,5 +16,5 @@ public interface UserService {
 
 	public List<User> getUser(int id);
 
-	public boolean checkLogin(int userId, String password);
+	public boolean checkLogin(String email, String password);
 }

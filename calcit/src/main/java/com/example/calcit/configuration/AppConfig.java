@@ -30,7 +30,7 @@ public class AppConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
-     @Override
+    @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setViewClass(JstlView.class);
