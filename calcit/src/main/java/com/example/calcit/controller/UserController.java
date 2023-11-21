@@ -26,10 +26,23 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginPage() {
+    public String showLoginPage(Model model) {
+
+        User user = new User();
+        model.addAttribute("user", user);
         return "login";
     }
 
+    @GetMapping("/login/loginUser")
+    public ModelAndView checksLogin(@ModelAttribute("user") User user) {
+        if (userService.checkLogin(user.getEmail(), user.getPassword())) {
+            return new ModelAndView("redirect:/");
+        } else {
+            ModelAndView modelAndView = new ModelAndView("redirect:/login");
+            modelAndView.addObject("error", "Invalid email or password");
+            return modelAndView;
+        }
+    }
     @GetMapping(value = "/registration/save")
 	public ModelAndView saveUser(@ModelAttribute("user") User user) {
 	    userService.saveOrUpdate(user);

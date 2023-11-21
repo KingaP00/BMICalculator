@@ -45,12 +45,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public boolean checkLogin(int userId, String password) {
+	public boolean checkLogin(String  email, String password) {
 		boolean userFound = false;
 		List<User> list = sessionFactory
 				.getCurrentSession()
-				.createQuery("FROM user as u WHERE u.userId=:userId AND u.password=:password")
-				.setParameter("userId", userId)
+				.createQuery("FROM User as u WHERE u.email=:email AND u.password=:password")
+				.setParameter("email", email)
 				.setParameter("password", password).list();
 
 		if ((list != null) && (list.size() > 0)) {
