@@ -2,20 +2,21 @@ package com.example.calcit.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.calcit.model.BMIResult;
+import com.example.calcit.model.BMI;
 
 @Controller
 public class BMIController {
 
-    @PostMapping("/calculateBMI")
-    public String calculateBMI(BMIResult bmiResult, Model model) {
-        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight());
-        String nutritionalStatus = getNutritionalStatus(bmiValue);
+    @GetMapping("/calculateBMI")
+    public String calculateBMI() {
+//        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight());
 
-        model.addAttribute("bmiValue", bmiValue);
-        model.addAttribute("nutritionalStatus", nutritionalStatus);
+//        String nutritionalStatus = getNutritionalStatus(bmiValue);
+//        model.addAttribute("bmiValue", bmiValue);
+//        model.addAttribute("nutritionalStatus", nutritionalStatus);
 
         return "bmiResult";
     }

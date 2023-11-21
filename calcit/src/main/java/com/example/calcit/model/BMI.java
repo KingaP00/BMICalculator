@@ -10,56 +10,56 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.val;
 
-// @Entity
-// @Table(name = "bmi")
-// public class BMI implements Serializable{
+ @Entity
+ @Table(name = "bmi")
+ public class BMI implements Serializable{
 
-//     @Id
-// 	@GeneratedValue(strategy = GenerationType.AUTO)
-// 	@Column(name="bmi_id")
-// 	private int bmiId;
-	
-// 	@Column(name="bmi_value")
-// 	private double value;
-	
-// 	@Column
-// 	private String timestamp;
+     @Id
+ 	@GeneratedValue(strategy = GenerationType.AUTO)
+ 	@Column(name="bmi_id")
+ 	private int bmiId;
 
-//     @Column(name="user_id")
-// 	private int userId;
-	
+ 	@Column(name="bmi_value")
+	private double value;
 
-// 	public int getBmiId() {
-// 		return bmiId;
-// 	}
+ 	@Column
+	private String timestamp;
 
-// 	public void setBmiId(int bmiId) {
-// 		this.bmiId = bmiId;
-// 	}
+     @Column(name="user_id")
+ 	private int userId;
 
-// 	public int getUserId() {
-// 		return userId;
-// 	}
 
-// 	public void setUserId(int userId) {
-// 		this.userId = userId;
-// 	}
+ 	public int getBmiId() {
+ 		return bmiId;
+ 	}
 
-// 	public String getTimestamp() {
-// 		return timestamp;
-// 	}
+ 	public void setBmiId(int bmiId) {
+ 		this.bmiId = bmiId;
+ 	}
 
-//     public void setUserId(String timestamp) {
-// 		this.timestamp = timestamp;
-// 	}
+ 	public int getUserId() {
+ 		return userId;
+ 	}
 
-//     public double getValue() {
-// 		return value;
-// 	}
+ 	public void setUserId(int userId) {
+ 		this.userId = userId;
+ 	}
 
-//     public void setUserId(double value) {
-// 		this.value = value;
-// 	}    
-// }
-    
+ 	public String getTimestamp() {
+ 		return timestamp;
+ 	}
+
+     public void setUserId(String timestamp) {
+ 		this.timestamp = timestamp;
+ 	}
+
+     public double getValue() {
+ 		return value;
+ 	}
+
+     public void setUserId(double value) {
+ 		this.value = value;
+ 	}
+ }
+
 

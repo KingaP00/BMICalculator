@@ -1,18 +1,18 @@
 package com.example.calcit.service;
 
-import com.example.calcit.model.BMIResult;
+import com.example.calcit.model.BMI;
 
 import java.util.List;
 
 public interface BMIService {
 
-    void saveOrUpdate(BMIResult bmiResult);
+    void saveOrUpdate(BMI bmiResult);
 
     void delete(int id);
 
-    BMIResult get(int id);
+    BMI get(int id);
 
-    List<BMIResult> getAllBMIResults();
+    List<BMI> getAllBMIResults();
 
-    List<BMIResult> getBMIResultsForUser(int userId);
+    List<BMI> getBMIResultsForUser(int userId);
 }

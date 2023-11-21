@@ -1,6 +1,6 @@
 package com.example.calcit.dao;
 
-import com.example.calcit.model.BMIResult;
+import com.example.calcit.model.BMI;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,33 +14,33 @@ public class BMIDaoImpl implements BMIDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void saveOrUpdate(BMIResult bmiResult) {
+    public void saveOrUpdate(BMI bmiResult) {
         sessionFactory.getCurrentSession().saveOrUpdate(bmiResult);
     }
 
     @Override
     public void delete(int id) {
-        BMIResult bmiResult = (BMIResult) sessionFactory.getCurrentSession().load(BMIResult.class, id);
+        BMI bmiResult = (BMI) sessionFactory.getCurrentSession().load(BMI.class, id);
         if (null != bmiResult) {
             this.sessionFactory.getCurrentSession().delete(bmiResult);
         }
     }
 
     @Override
-    public BMIResult get(int id) {
-        return (BMIResult) sessionFactory.getCurrentSession().get(BMIResult.class, id);
+    public BMI get(int id) {
+        return (BMI) sessionFactory.getCurrentSession().get(BMI.class, id);
     }
 
     @SuppressWarnings("unchecked")
-    public List<BMIResult> getAllBMIResults() {
-        return sessionFactory.getCurrentSession().createQuery("FROM BMIResult").list();
+    public List<BMI> getAllBMIResults() {
+        return sessionFactory.getCurrentSession().createQuery("FROM BMI").list();
     }
 
     @SuppressWarnings("unchecked")
-    public List<BMIResult> getBMIResultsForUser(int userId) {
+    public List<BMI> getBMIResultsForUser(int userId) {
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("FROM BMIResult b WHERE b.userId=:userId")
+                .createQuery("FROM BMI b WHERE b.userId=:userId")
                 .setParameter("userId", userId)
                 .list();
     }

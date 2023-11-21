@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>BMI Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+</head>
+<body>
+
+<div class="main-container bmicalculator">
+    <div class="main-container__inside-background">
+
+        <!-- ... (reszta kodu bez zmian) ... -->
+
+        <div class="calculator__wrapper">
+            <div class="calculator__background">
+                <div class="">
+                    <div class="bmicalc-form">
+                        <form th:action="@{bmiResult}" class="bmicalc-form__container" onsubmit="return validateBMI(event)">
+                            <p class="bmicalc-form__title">Calculate your BMI</p>
+                            <!-- to zmien, napraw popraw account-form__input -->
+                            <div class="bmicalc-form__element" >
+                                <span class="account-form__span">Weight:</span>
+                                <input type="number" class="bmicalc-form__input" id="weight"/>
+                                <span class="account-form__span">kg</span>
+                            </div>
+
+                            <div class="bmicalc-form__element" >
+                                <span class="account-form__span">Height:</span>
+                                <input type="number" class="bmicalc-form__input" id="height"/>
+                                <span class="account-form__span">cm</span>
+                            </div>
+
+                            <button type="submit" class="btn btn--green btn--form">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator__background">
+                <div class="line-calc__container">
+                    <!-- ... (reszta kodu bez zmian) ... -->
+                </div>
+                <div class="bmi__result">
+                    <span class="account-form__span">Your BMI: </span>
+                    <div class="circle__wrapper">
+                        <div class="circle">
+                            <div class="circle">
+                                <div class="circle">
+                                    <span class="account-form__span2" id="bmi_result"> ... </span>
+                                    <span class="account-form__span2" id="result_string">Correct weight</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ... (reszta kodu bez zmian) ... -->
+    </div>
+</div>
+
+<script>
+    function validateBMI(event) {
+        event.preventDefault(); // Uniemożliwienie domyślnego zachowania formularza (przekierowania)
+
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+
+        if (!weight || !height || weight <= 0 || height <= 0) {
+            alert("Please enter valid values for weight and height.");
+            return false;
+        }
+
+        // Obliczenie BMI
+        let bmi = (weight / Math.pow(height / 100, 2)).toFixed(1);
+
+        // Wyświetlenie wyniku
+        document.getElementById("bmi_result").innerText = bmi;
+
+        // Określenie tekstu wyniku
+        let resultString = getResultsString(bmi);
+        document.getElementById("result_string").innerText = resultString;
+
+        return true;
+    }
+
+    function getResultsString(bmi) {
+        if (bmi < 18.5) {
+            return "Underweight";
+        } else if (bmi <= 24.9 && bmi >= 18.5) {
+            return "Normal weight";
+        } else if (bmi <= 29.9 && bmi > 24.9) {
+            return "Overweight";
+        } else if (bmi <= 34.9 && bmi > 29.9) {
+            return "Obesity I. Change your lifestyle and consult with a doctor.";
+        } else if (bmi <= 39.9 && bmi > 34.9) {
+            return "Obesity II. Change your lifestyle and consult with a doctor.";
+        } else if (bmi >= 40) {
+            return "Obesity III. Change your lifestyle and consult with a doctor.";
+        } else {
+            return "Invalid value entered.";
+        }
+    }
+</script>
+
+</body>
+</html>

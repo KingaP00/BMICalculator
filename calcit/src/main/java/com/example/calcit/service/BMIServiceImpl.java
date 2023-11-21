@@ -1,7 +1,7 @@
 package com.example.calcit.service;
 
 import com.example.calcit.dao.BMIDao;
-import com.example.calcit.model.BMIResult;
+import com.example.calcit.model.BMI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class BMIServiceImpl implements BMIService {
     private BMIDao bmiDao;
 
     @Override
-    public void saveOrUpdate(BMIResult bmiResult) {
+    public void saveOrUpdate(BMI bmiResult) {
         bmiDao.saveOrUpdate(bmiResult);
     }
 
@@ -26,17 +26,17 @@ public class BMIServiceImpl implements BMIService {
     }
 
     @Override
-    public BMIResult get(int id) {
+    public BMI get(int id) {
         return bmiDao.get(id);
     }
 
     @Override
-    public List<BMIResult> getAllBMIResults() {
+    public List<BMI> getAllBMIResults() {
         return bmiDao.getAllBMIResults();
     }
 
     @Override
-    public List<BMIResult> getBMIResultsForUser(int userId) {
+    public List<BMI> getBMIResultsForUser(int userId) {
         return bmiDao.getBMIResultsForUser(userId);
     }
 }
