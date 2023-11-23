@@ -38,6 +38,12 @@
                                 <span class="account-form__span">cm</span>
                             </div>
 
+                            <div class="bmicalc-form__element" >
+                                <span class="account-form__span">Height:</span>
+                                <input type="number" class="bmicalc-form__input" id="value" name="value" th:field="*{value}"/>
+                                <span class="account-form__span">cm</span>
+                            </div>
+
                             <button type="submit" class="btn btn--green btn--form">Calculate</button>
                         </form>
                     </div>
@@ -53,7 +59,7 @@
                         <div class="circle">
                             <div class="circle">
                                 <div class="circle">
-                                    <span class="account-form__span2" id="bmi_result"> ... </span>
+                                    <span class="account-form__span2" id="bmi_result"> </span>
                                     <span class="account-form__span2" id="result_string">Correct weight</span>
                                 </div>
                             </div>
@@ -62,7 +68,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ... (reszta kodu bez zmian) ... -->
     </div>
 </div>

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.example.calcit.model.BMI;
 import com.example.calcit.model.BMIResult;
 import com.example.calcit.service.BMIService;
@@ -19,15 +18,12 @@ public class BMIController {
 
     @GetMapping("/bmi")
     public String calculate(@ModelAttribute("bmiResult") BMIResult bmiResult) {
-        BMIResult bmr = new BMIResult();
-        bmr.setValue(bmiResult.getValue());
-        bmr.setStatus(bmiResult.getStatus());
         return "bmi";
     }
 
     @GetMapping("/calculateBMI")
-    public ModelAndView calculateBMI(@ModelAttribute("bmiResult") BMIResult bmiResult) {
-        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight());
+    public String calculateBMI(@ModelAttribute("bmiResult") BMIResult bmiResult) {
+        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight()/100);
         String nutritionalStatus = getNutritionalStatus(bmiValue);
 
         bmiResult.setStatus(nutritionalStatus);
@@ -44,12 +40,12 @@ public class BMIController {
 
         bmiService.saveOrUpdate(bmi);
 
-        return modelAndView;
+        return calculate(bmiResult);
     }
 
     private double calculateBMIValue(double weight, double height) {
 
-        return weight / (height * height);
+        return (weight / (height * height)) ;
     }
 
     private String getNutritionalStatus(double bmi) {
