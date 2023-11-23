@@ -1,24 +1,50 @@
 package com.example.calcit.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.calcit.model.BMI;
+import com.example.calcit.model.BMIResult;
+import com.example.calcit.service.BMIService;
+
 
 @Controller
 public class BMIController {
 
+    @Autowired
+	private BMIService bmiService;
+
+    @GetMapping("/bmi")
+    public String calculate(@ModelAttribute("bmiResult") BMIResult bmiResult) {
+        BMIResult bmr = new BMIResult();
+        bmr.setValue(bmiResult.getValue());
+        bmr.setStatus(bmiResult.getStatus());
+        return "bmi";
+    }
+
     @GetMapping("/calculateBMI")
-    public String calculateBMI() {
-//        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight());
+    public ModelAndView calculateBMI(@ModelAttribute("bmiResult") BMIResult bmiResult) {
+        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight());
+        String nutritionalStatus = getNutritionalStatus(bmiValue);
 
-//        String nutritionalStatus = getNutritionalStatus(bmiValue);
-//        model.addAttribute("bmiValue", bmiValue);
-//        model.addAttribute("nutritionalStatus", nutritionalStatus);
+        bmiResult.setStatus(nutritionalStatus);
+        bmiResult.setValue(bmiValue);
 
-        return "bmiResult";
+        ModelAndView modelAndView = new ModelAndView("redirect:/bmi");
+    
+        modelAndView.addObject("bmiResult", bmiResult);
+
+        BMI bmi = new BMI();
+        bmi.setValue(bmiValue);
+        bmi.setUserId(1);
+        bmi.setTimestamp("");
+
+        bmiService.saveOrUpdate(bmi);
+
+        return modelAndView;
     }
 
     private double calculateBMIValue(double weight, double height) {

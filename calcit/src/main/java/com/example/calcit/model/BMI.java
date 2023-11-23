@@ -8,13 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.val;
 
  @Entity
  @Table(name = "bmi")
  public class BMI implements Serializable{
 
-     @Id
+    @Id
  	@GeneratedValue(strategy = GenerationType.AUTO)
  	@Column(name="bmi_id")
  	private int bmiId;
@@ -25,7 +24,7 @@ import lombok.val;
  	@Column
 	private String timestamp;
 
-     @Column(name="user_id")
+    @Column(name="user_id")
  	private int userId;
 
 
@@ -49,7 +48,7 @@ import lombok.val;
  		return timestamp;
  	}
 
-     public void setUserId(String timestamp) {
+     public void setTimestamp(String timestamp) {
  		this.timestamp = timestamp;
  	}
 
@@ -57,7 +56,7 @@ import lombok.val;
  		return value;
  	}
 
-     public void setUserId(double value) {
+     public void setValue(double value) {
  		this.value = value;
  	}
  }

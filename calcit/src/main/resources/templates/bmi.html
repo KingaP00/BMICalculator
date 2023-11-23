@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>BMI Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+</head>
+<body>
+
+<div class="main-container bmicalculator">
+    <div class="main-container__inside-background">
+
+        <!-- ... (reszta kodu bez zmian) ... -->
+
+        <div class="calculator__wrapper">
+            <div class="calculator__background">
+                <div class="">
+                    <div class="bmicalc-form">
+                        <form th:action="@{/calculateBMI}" th:object="${bmiResult}" class="bmicalc-form__container">
+                            <p class="bmicalc-form__title">Calculate your BMI</p>
+                            <!-- to zmien, napraw popraw account-form__input -->
+                            <div class="bmicalc-form__element" >
+                                <span class="account-form__span">Weight:</span>
+                                <input type="number" class="bmicalc-form__input" id="weight" name="weight" th:field="*{weight}"/>
+                                <span class="account-form__span">kg</span>
+                            </div>
+
+                            <div class="bmicalc-form__element" >
+                                <span class="account-form__span">Height:</span>
+                                <input type="number" class="bmicalc-form__input" id="height" name="height" th:field="*{height}"/>
+                                <span class="account-form__span">cm</span>
+                            </div>
+
+                            <button type="submit" class="btn btn--green btn--form">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator__background">
+                <div class="line-calc__container">
+                    <!-- ... (reszta kodu bez zmian) ... -->
+                </div>
+                <div class="bmi__result">
+                    <span class="account-form__span">Your BMI: </span>
+                    <div class="circle__wrapper">
+                        <div class="circle">
+                            <div class="circle">
+                                <div class="circle">
+                                    <span class="account-form__span2" id="bmi_result"> ... </span>
+                                    <span class="account-form__span2" id="result_string">Correct weight</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ... (reszta kodu bez zmian) ... -->
+    </div>
+</div>
+
+</body>
+</html>
