@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
@@ -23,7 +23,7 @@
             <div class="calculator__background">
                 <div class="">
                     <div class="bmicalc-form">
-                        <form th:action="@{/calculateBMI}" th:object="${bmiResult}" class="bmicalc-form__container">
+                        <form th:action="@{/calculateBMI}" th:object="${bmiResult}" class="bmicalc-form__container" onsubmit="return validateForm()">
                             <p class="bmicalc-form__title">Calculate your BMI</p>
                             <!-- to zmien, napraw popraw account-form__input -->
                             <div class="bmicalc-form__element" >
@@ -37,13 +37,6 @@
                                 <input type="number" class="bmicalc-form__input" id="height" name="height" th:field="*{height}"/>
                                 <span class="account-form__span">cm</span>
                             </div>
-
-                            <div class="bmicalc-form__element" >
-                                <span class="account-form__span">Height:</span>
-                                <input type="number" class="bmicalc-form__input" id="value" name="value" th:field="*{value}"/>
-                                <span class="account-form__span">cm</span>
-                            </div>
-
                             <button type="submit" class="btn btn--green btn--form">Calculate</button>
                         </form>
                     </div>
@@ -59,18 +52,49 @@
                         <div class="circle">
                             <div class="circle">
                                 <div class="circle">
-                                    <span class="account-form__span2" id="bmi_result"> </span>
-                                    <span class="account-form__span2" id="result_string">Correct weight</span>
+                                    <span class="account-form__span2" id="bmi_result">
+                                        <p th:text="${bmiResultValues?.value}"></p>
+                                    </span>
+                                    <span class="account-form__span2" id="result_string">
+                                        <p th:text="${bmiResultValues?.status}"></p>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="bmi__result">
+                    <span class="account-form__span">Last calculated value: </span>
+                    <span class="account-form__span2" id="last_result_string">
+                        <p th:text="${{lastBmi?.value}}"></p>
+                    </span>
+                    <span class="account-form__span2" id="date_string">
+                        <p th:text=${{lastBmi?.timestamp}}></p>
+                    </span>
                 </div>
             </div>
         </div>
         <!-- ... (reszta kodu bez zmian) ... -->
     </div>
 </div>
+
+<script>
+    function validateForm() {
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        if (height<=0) {
+            alert("Height must not be equal to or less than zero!");
+            return false;
+        }
+        if (weight<=0) {
+            alert("Weight must not be equal to or less than zero");
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 </body>
 </html>

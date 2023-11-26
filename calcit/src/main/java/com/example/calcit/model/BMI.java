@@ -1,6 +1,7 @@
 package com.example.calcit.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +23,7 @@ import jakarta.persistence.Table;
 	private double value;
 
  	@Column
-	private String timestamp;
+	private Timestamp timestamp;
 
     @Column(name="user_id")
  	private int userId;
@@ -44,11 +45,11 @@ import jakarta.persistence.Table;
  		this.userId = userId;
  	}
 
- 	public String getTimestamp() {
+ 	public Timestamp getTimestamp() {
  		return timestamp;
  	}
 
-     public void setTimestamp(String timestamp) {
+     public void setTimestamp(Timestamp timestamp) {
  		this.timestamp = timestamp;
  	}
 
