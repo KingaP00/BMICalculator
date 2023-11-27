@@ -65,8 +65,7 @@
 
     &--form {
         font-size: 2rem;
-        padding: 1rem 2rem;
-        margin-top: 2rem;
+        padding: 1rem 1.5rem;
         background-color: $color-primary;
         color: $color-secondary;
 
@@ -91,4 +90,8 @@
         z-index: -1;
         transition: all .4s;
     }
+}
+
+.home__text-box >.btn--less-padding {
+    padding: 1.5rem 2rem;
 }

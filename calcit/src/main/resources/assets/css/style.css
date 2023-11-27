@@ -113,8 +113,7 @@ body {
 
 .btn--form {
   font-size: 2rem;
-  padding: 1rem 2rem;
-  margin-top: 2rem;
+  padding: 1rem 1.5rem;
   background-color: #54EA54;
   color: #373737; }
   .btn--form::after {
@@ -135,6 +134,9 @@ body {
   z-index: -1;
   transition: all .4s; }
 
+.home__text-box > .btn--less-padding {
+  padding: 1.5rem 2rem; }
+
 .main-container {
   position: relative;
   width: 100%;
@@ -147,7 +149,7 @@ body {
     position: relative;
     height: 100%;
     width: 100%;
-    background-image: url("/BMICalculator/calcit/src/main/resources/img/inside-background.png");
+    background-image: url("../../images/inside-background.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -155,7 +157,7 @@ body {
     box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.5); }
     @media only screen and (max-width: 37.5em) {
       .main-container__inside-background {
-        background-image: url("/BMICalculator/calcit/src/main/resources/img/inside-background-mobile.png"); } }
+        background-image: url("../../images/inside-background-mobile.png"); } }
   .main-container__logo-box {
     position: absolute;
     z-index: 10;
@@ -183,7 +185,7 @@ body {
         height: 50%; } }
     @media only screen and (max-width: 37.5em) {
       .main-container__food {
-        height: 45%; } }
+        height: 35%; } }
   .main-container__fork {
     position: absolute;
     height: 30%;
@@ -204,7 +206,7 @@ body {
     flex-direction: column;
     align-items: center; }
   .account-form__title {
-    padding: 2rem;
+    padding: 1.5rem;
     color: #FFF;
     font-size: 2.5rem;
     font-weight: 400; }
