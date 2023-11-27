@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>Registration page</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+</head>
+<body>
+<div class="main-container create-account-form">
+    <div class="main-container__inside-background">
+
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main-container__logo-box">
+            <img th:src="@{/images/logo.svg}" alt="Logo" class="main-container__logo">
+        </div>
+
+        <div class="header">
+            <a href="" class="header__element">Home</a>
+            <a href="" class="header__element header__element--active">Account</a>
+        </div>
+
+        <div class="create-account-form__background">
+            <form  class="create-account-form__container" >
+                <p class="create-account-form__title">Create your account</p>
+
+                <div class="create-account-form__element">
+                    <label for="username">Username</label>
+                    <input type="text" class="create-account-form__input" name="username" id="username" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="email">Email</label>
+                    <input type="email" class="create-account-form__input" name="email" id="email" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="weight">Weight</label>
+                    <input type="text" class="create-account-form__input" placeholder="kg" name="weight" id="weight" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="height">Height</label>
+                    <input type="text" class="create-account-form__input" placeholder="cm" name="height" id="height" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="waist">Waist</label>
+                    <input type="text" class="create-account-form__input" placeholder="cm" name="waist" id="waist" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="age">Age</label>
+                    <input type="text" class="create-account-form__input" name="age" id="age" required>
+                </div>
+
+                <div class="create-account-form__element">
+                    <label for="sex">Sex</label>
+                    <select  class="create-account-form__select" name="sex" id="sex" required>
+                        <option value="female">female</option>
+                        <option value="male">male</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn--green btn--form">Submit</button>
+            </form>
+            <picture>
+                <source media="(min-width:600px)" th:srcset="@{/images/line.svg}">
+                <img th:src="@{/images/line-mobile.svg}" alt="" class="registration__line">
+            </picture>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

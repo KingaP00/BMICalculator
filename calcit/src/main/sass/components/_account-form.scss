@@ -59,6 +59,10 @@
         outline: none;
     }
 
+    input::placeholder {
+        color: $color-gray;
+    }
+
     &__text {
         font-size: 1.2rem;
         color: $color-white;
