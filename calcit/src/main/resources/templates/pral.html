@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>PRAL Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+</head>
+<body>
+
+    <div class="main-container bmicalculator">
+        <div class="main-container__inside-background">
+    
+            <!-- ... (reszta kodu bez zmian) ... -->
+    
+            <div class="calculator__wrapper">
+                <div class="calculator__background">
+                    <div class="">
+                        <div class="bmicalc-form">
+                            <form th:action="@{/calculatePRAL}" th:object="${pralResult}" class="bmicalc-form__container" onsubmit="return validateFormPRAL()">
+                                <p class="bmicalc-form__title">Calculate your PRAL</p>
+    
+                                <div class="bmicalc-form__element">
+                                    <span class="account-form__span">Protein (g):</span>
+                                    <input type="number" class="bmicalc-form__input" id="protein" name="protein" th:field="*{protein}" step="0.1" required/>
+                                </div>
+    
+                                <div class="bmicalc-form__element">
+                                    <span class="account-form__span">Phosphorus (mg):</span>
+                                    <input type="number" class="bmicalc-form__input" id="phosphorus" name="phosphorus" th:field="*{phosphorus}" step="0.1" required/>
+                                </div>
+    
+                                <div class="bmicalc-form__element">
+                                    <span class="account-form__span">Potassium (mg):</span>
+                                    <input type="number" class="bmicalc-form__input" id="potassium" name="potassium" th:field="*{potassium}" step="0.1" required/>
+                                </div>
+    
+                                <div class="bmicalc-form__element">
+                                    <span class="account-form__span">Magnesium (mg):</span>
+                                    <input type="number" class="bmicalc-form__input" id="magnesium" name="magnesium" th:field="*{magnesium}" step="0.1" required/>
+                                </div>
+    
+                                <div class="bmicalc-form__element">
+                                    <span class="account-form__span">Calcium (mg):</span>
+                                    <input type="number" class="bmicalc-form__input" id="calcium" name="calcium" th:field="*{calcium}" step="0.1" required/>
+                                </div>
+    
+                                <button type="submit" class="btn btn--green btn--form">Calculate PRAL</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator__background">
+                    <div class="line-calc__container">
+                        <!-- ... (reszta kodu bez zmian) ... -->
+                    </div>
+                    <div class="bmi__result">
+                        <span class="account-form__span">Your PRAL: </span>
+                        <div class="circle__wrapper">
+                            <div class="circle">
+                                <div class="circle">
+                                    <div class="circle">
+                                        <span class="account-form__span2" id="pral_result">
+                                            <p th:text="${pralResultValues?.value}"></p>
+                                        </span>
+                                        <span class="account-form__span2" id="result_string">
+                                            <p th:text="${pralResultValues?.status}"></p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bmi__result">
+                        <span class="account-form__span">Last calculated value: </span>
+                        <span class="account-form__span2" id="last_result_string">
+                            <p th:text="${lastPral?.value}"></p>
+                        </span>
+                        <span class="account-form__span2" id="date_string">
+                            <p th:text="${lastPral?.timestamp}"></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- ... (reszta kodu bez zmian) ... -->
+        </div>
+    </div>
+
+<script>
+    function validateForm() {
+        var protein = document.getElementById("protein").value;
+        var phosphorus = document.getElementById("phosphorus").value;
+        var potassium = document.getElementById("potassium").value;
+        var Magnesium = document.getElementById("Magnesium").value;
+        var Calcium = document.getElementById("Calcium").value;
+        
+
+        if (protein <= 0) {
+        alert("Protein must not be equal to or less than zero!");
+        return false;
+        }
+        if (phosphorus <= 0) {
+            alert("Phosphorus must not be equal to or less than zero");
+            return false;
+        }
+        if (potassium <= 0) {
+            alert("Potassium must not be equal to or less than zero");
+            return false;
+        }
+        if (Calcium <= 0) {
+            alert("Calcium must not be equal to or less than zero");
+            return false;
+        }
+        if (Magnesium <= 0) {
+            alert("Magnesium must not be equal to or less than zero");
+            return false;
+        }
+            
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
