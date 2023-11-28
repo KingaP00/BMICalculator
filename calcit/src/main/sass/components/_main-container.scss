@@ -76,4 +76,48 @@
             height: 12%;
         }
     }
+
+    &__sign {
+        position: absolute;
+
+        @include respond(tab-port) {
+            width: 40%;
+        }
+    }
+
+    &__multiplication {
+        right: 55rem;
+        bottom: -2rem;
+
+        @include respond(tab-port) {
+            right: 0;
+            bottom: -15rem;
+        }
+
+        @include respond(tab-land) {
+            right: 20rem;
+        }
+    }
+
+    &__plus {
+        rotate: -48deg;
+        right: 18rem;
+        top: -5rem;
+
+        @include respond(tab-port) {
+            right: -4rem;
+            top: 10rem;
+        }
+    }
+
+    &__equal {
+        rotate: -48deg;
+        bottom: -4rem;
+        left: 4rem;
+
+        @include respond(tab-port) {
+            bottom: -18rem;
+            left: 23rem;
+        }
+    }
 }
