@@ -23,8 +23,8 @@
                 <div class="calculator__background">
                     <div class="">
                         <div class="bmicalc-form">
-                            <form th:action="@{/calculatePRAL}" th:object="${pralResult}" class="bmicalc-form__container" onsubmit="return validateFormPRAL()">
-                                <p class="bmicalc-form__title">Calculate your PRAL</p>
+                            <form th:action="@{/calculatePRAL}" th:object="${pralResult}" class="bmicalc-form__container" onsubmit="return validateForm()">
+                                <p class="bmicalc-form__title">Calculate  PRAL</p>
     
                                 <div class="bmicalc-form__element">
                                     <span class="account-form__span">Protein (g):</span>
@@ -94,37 +94,35 @@
 
 <script>
     function validateForm() {
-        var protein = document.getElementById("protein").value;
-        var phosphorus = document.getElementById("phosphorus").value;
-        var potassium = document.getElementById("potassium").value;
-        var Magnesium = document.getElementById("Magnesium").value;
-        var Calcium = document.getElementById("Calcium").value;
-        
-
-        if (protein <= 0) {
+    let protein = document.getElementById("protein").value;
+    let phosphorus = document.getElementById("phosphorus").value;
+    let potassium = document.getElementById("potassium").value;
+    let magnesium = document.getElementById("magnesium").value; 
+    let calcium = document.getElementById("calcium").value; 
+    
+    if (protein <= 0) {
         alert("Protein must not be equal to or less than zero!");
         return false;
-        }
-        if (phosphorus <= 0) {
-            alert("Phosphorus must not be equal to or less than zero");
-            return false;
-        }
-        if (potassium <= 0) {
-            alert("Potassium must not be equal to or less than zero");
-            return false;
-        }
-        if (Calcium <= 0) {
-            alert("Calcium must not be equal to or less than zero");
-            return false;
-        }
-        if (Magnesium <= 0) {
-            alert("Magnesium must not be equal to or less than zero");
-            return false;
-        }
-            
-
-        return true;
     }
+    if (phosphorus <= 0) {
+        alert("Phosphorus must not be equal to or less than zero");
+        return false;
+    }
+    if (potassium <= 0) {
+        alert("Potassium must not be equal to or less than zero");
+        return false;
+    }
+    if (magnesium <= 0) {
+        alert("Magnesium must not be equal to or less than zero");
+        return false;
+    }
+    if (calcium <= 0) { 
+        alert("Calcium must not be equal to or less than zero");
+        return false;
+    }
+
+    return true;
+}
 </script>
 
 </body>
