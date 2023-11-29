@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.calcit.model.BMI;
-import com.example.calcit.model.BMIResult;
+
 import com.example.calcit.model.PRAL;
 import com.example.calcit.model.PRALResult;
 import com.example.calcit.service.PRALService;
