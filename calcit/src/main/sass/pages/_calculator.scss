@@ -107,6 +107,10 @@
 
     &__result {
         color: $color-secondary;
+
+        &--white {
+            color: $color-white;
+        }
     }
 
     &__element {
@@ -168,4 +172,8 @@
     input::placeholder {
         color: $color-gray;
     }
+}
+
+.bmi__last-result {
+    margin-top: 2rem;
 }

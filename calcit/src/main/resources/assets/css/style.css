@@ -513,6 +513,8 @@ body {
         margin-right: 3rem; } }
   .calculator__result {
     color: #373737; }
+    .calculator__result--white {
+      color: #FFF; }
   .calculator__element {
     width: 30rem;
     display: flex;
@@ -555,6 +557,9 @@ body {
     outline: none; }
   .calculator input::placeholder {
     color: #C1C4CE; }
+
+.bmi__last-result {
+  margin-top: 2rem; }
 
 .navigation__checkbox {
   display: none; }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE-edge" />
@@ -14,67 +15,95 @@
 </head>
 <body>
 
-<div class="main-container bmicalculator">
+<div class="main-container calculator">
     <div class="main-container__inside-background">
 
-        <!-- ... (reszta kodu bez zmian) ... -->
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
-        <div class="calculator__wrapper">
-            <div class="calculator__background">
-                <div class="">
-                    <div class="bmicalc-form">
-                        <form th:action="@{/calculateBMI}" th:object="${bmiResult}" class="bmicalc-form__container" onsubmit="return validateForm()">
-                            <p class="bmicalc-form__title">Calculate your BMI</p>
-                            <!-- to zmien, napraw popraw account-form__input -->
-                            <div class="bmicalc-form__element" >
-                                <span class="account-form__span">Weight:</span>
-                                <input type="number" class="bmicalc-form__input" id="weight" name="weight" th:field="*{weight}"/>
-                                <span class="account-form__span">kg</span>
-                            </div>
+            <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
 
-                            <div class="bmicalc-form__element" >
-                                <span class="account-form__span">Height:</span>
-                                <input type="number" class="bmicalc-form__input" id="height" name="height" th:field="*{height}"/>
-                                <span class="account-form__span">cm</span>
-                            </div>
-                            <button type="submit" class="btn btn--green btn--form">Calculate</button>
-                        </form>
-                    </div>
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+                    <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main-container__logo-box">
+            <img th:src="@{/images/logo.svg}" alt="Logo" class="main-container__logo">
+        </div>
+
+        <div class="header">
+            <a href="" class="header__element">Home</a>
+            <a href="" class="header__element header__element--active">BMI</a>
+        </div>
+
+        <div class="calculator__container">
+            <div class="calculator__calculate-container">
+                <div class="calculator__form">
+                    <form th:action="@{/calculateBMI}" th:object="${bmiResult}" onsubmit="return validateForm()">
+                        <p class="calculator__title">Calculate BMI</p>
+                        
+                        <div class="calculator__element" >
+                            <label for="weight">Weight:</label>
+                            <input type="number" class="calculator__input" placeholder="kg" id="weight" name="weight" th:field="*{weight}"/>
+                        </div>
+
+                        <div class="calculator__element" >
+                            <label for="height">Height:</label>
+                            <input type="number" class="calculator__input" placeholder="cm" id="height" name="height" th:field="*{height}"/>
+                        </div>
+
+                        <button type="submit" class="btn btn--green btn--form">Calculate</button>
+                    </form>
                 </div>
             </div>
-            <div class="calculator__background">
-                <div class="line-calc__container">
-                    <!-- ... (reszta kodu bez zmian) ... -->
-                </div>
-                <div class="bmi__result">
-                    <span class="account-form__span">Your BMI: </span>
-                    <div class="circle__wrapper">
-                        <div class="circle">
-                            <div class="circle">
-                                <div class="circle">
-                                    <span class="account-form__span2" id="bmi_result">
-                                        <p th:text="${bmiResultValues?.value}"></p>
-                                    </span>
-                                    <span class="account-form__span2" id="result_string">
-                                        <p th:text="${bmiResultValues?.status}"></p>
-                                    </span>
-                                </div>
-                            </div>
+            <div class="calculator__result-container">
+                <p class="calculator__title">Results</p>
+
+                <div class="calculator__circle-container">
+                    <span class="calculator__name">Your BMI:</span>
+                    <div class="calculator__circle-wrapper">
+                        <div class="bmi__result">
+                            <span class="calculator__result" id="bmi_result">
+                                <p th:text="${bmiResultValues?.value}"></p>
+                            </span>
+                            <span class="calculator__result" id="result_string">
+                                <p th:text="${bmiResultValues?.status}"></p>
+                            </span>
                         </div>
                     </div>
                 </div>
-                <div class="bmi__result">
-                    <span class="account-form__span">Last calculated value: </span>
-                    <span class="account-form__span2" id="last_result_string">
+
+                <div class="bmi__last-result">
+                    <span class="calculator__result--white">Last value:</span>
+                    <span class="calculator__result--white" id="last_result_string">
                         <p th:text="${{lastBmi?.value}}"></p>
                     </span>
-                    <span class="account-form__span2" id="date_string">
+                    <span class="calculator__result--white" id="date_string">
                         <p th:text=${{lastBmi?.timestamp}}></p>
                     </span>
                 </div>
+
+                <picture>
+                    <source media="(min-width:600px)" th:srcset="@{/images/bmi-line.png}">
+                    <img th:src="@{/images/bmi-line-mobile.png}" alt="" class="calculator__line">
+                </picture>
             </div>
         </div>
-        <!-- ... (reszta kodu bez zmian) ... -->
+
+        <img th:src="@{/images/multiplication-sign.png}" alt="" class="main-container__sign main-container__multiplication">
+        <img th:src="@{/images/plus-sign.png}" alt="" class="main-container__sign main-container__plus">
+        <img th:src="@{/images/equal-sign.png}" alt="" class="main-container__sign main-container__equal">
     </div>
 </div>
 
