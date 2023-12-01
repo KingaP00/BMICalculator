@@ -32,8 +32,8 @@
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
                         <li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>04</span>BMI Calculator</a></li>
-                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>05</span>PRAL Calculator</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>06</span>YMCA Calculator</a></li>
+                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>06</span>PRAL Calculator</a></li>
                     </ul>
                 </nav>
             </div>
@@ -44,14 +44,14 @@
 
             <div class="header">
                 <a href="" class="header__element">Home</a>
-                <a href="" class="header__element header__element--active">PPM</a>
+                <a href="" class="header__element header__element--active">YMCA</a>
             </div>
 
             <div class="calculator__container">
                 <div class="calculator__calculate-container">
                     <div class="calculator__form">
-                        <form>
-                            <p class="calculator__title">Calculate PPM</p>
+                        <form onsubmit="return validateForm()">
+                            <p class="calculator__title">Calculate YMCA</p>
 
                             <div class="calculator__element" >
                                 <label for="sex">Sex:</label>
@@ -67,13 +67,8 @@
                             </div>
 
                             <div class="calculator__element" >
-                                <label for="height">Height:</label>
-                                <input type="number" class="calculator__input" placeholder="cm" id="height" name="height"/>
-                            </div>
-
-                            <div class="calculator__element" >
-                                <label for="age">Age:</label>
-                                <input type="number" class="calculator__input" id="age" name="age"/>
+                                <label for="Waist">Waist:</label>
+                                <input type="number" class="calculator__input" placeholder="cm" id="waist" name="waist"/>
                             </div>
 
                             <button type="submit" class="btn btn--green btn--form">Calculate</button>
@@ -84,7 +79,7 @@
                     <p class="calculator__title">Results</p>
 
                     <div class="calculator__circle-container">
-                        <span class="calculator__name">Your PPM:</span>
+                        <span class="calculator__name">Your YMCA:</span>
                         <div class="calculator__circle-wrapper">
                             <p class="calculator__result">18.8</p>
                         </div>
@@ -102,6 +97,23 @@
         </div>
     </div>
 
-</body>
+<script>
+    function validateForm() {
+        var weight = document.getElementById("weight").value;
+        var waist = document.getElementById("waist").value;
 
+        if (height <= 0) {
+            alert("Height must not be equal to or less than zero!");
+            return false;
+        }
+        if (waist <= null) {
+            alert("Weight must not be equal to or less than zero");
+            return false;
+        }
+
+        return true;
+    }
+</script>   
+ 
+</body>
 </html>
