@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.example.calcit.model.BMI;
+import com.example.calcit.model.PPM;
 import com.example.calcit.model.User;
 
 @Configuration
@@ -50,7 +51,7 @@ public class HibernateConfiguration {
     @Bean(name="entityManagerFactory")
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setAnnotatedClasses(new Class[] { User.class, BMI.class });
+        sessionFactory.setAnnotatedClasses(new Class[] { User.class, BMI.class, PPM.class });
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;

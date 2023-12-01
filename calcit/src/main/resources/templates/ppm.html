@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <title>PPM Calculator</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+</head>
+<body>
+
+<div class="main-container ppmcalculator">
+    <div class="main-container__inside-background">
+
+        <!-- ... (reszta kodu bez zmian) ... -->
+
+        <div class="calculator__wrapper">
+            <div class="calculator__background">
+                <div class="">
+                    <div class="ppmcalc-form">
+                        <form th:action="@{/calculatePPM}" th:object="${ppmResult}" class="ppmcalc-form__container" onsubmit="return validateForm()">
+                            <p class="ppmcalc-form__title">Calculate your PPM</p>
+                            <!-- to zmien, napraw popraw account-form__input -->
+                            <div class="ppmcalc-form__element" >
+                                <span class="account-form__span">Weight:</span>
+                                <input type="number" class="ppmcalc-form__input" id="weight" name="weight" th:field="*{weight}"/>
+                                <span class="account-form__span">kg</span>
+                            </div>
+
+                            <div class="ppmcalc-form__element" >
+                                <span class="account-form__span">Height:</span>
+                                <input type="number" class="ppmcalc-form__input" id="height" name="height" th:field="*{height}"/>
+                                <span class="account-form__span">cm</span>
+                            </div>
+
+                            <div class="ppmcalc-form__element" >
+                                <span class="account-form__span">Age:</span>
+                                <input type="number" class="ppmcalc-form__input" id="age" name="age" th:field="*{age}"/>
+                                <span class="account-form__span">years</span>
+                            </div>
+                            <button type="submit" class="btn btn--green btn--form">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator__background">
+                <div class="line-calc__container">
+                    <!-- ... (reszta kodu bez zmian) ... -->
+                </div>
+                <div class="ppm__result">
+                    <span class="account-form__span">Your PPM: </span>
+                    <div class="circle__wrapper">
+                        <div class="circle">
+                            <div class="circle">
+                                <div class="circle">
+                                    <span class="account-form__span2" id="ppm_result">
+                                        <p th:text="${ppmResultValues?.value}"></p>
+                                    </span>
+                                    <span class="account-form__span2" id="result_string">
+                                        <p th:text="${ppmResultValues?.status}"></p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ppm__result">
+                    <span class="account-form__span">Last calculated value: </span>
+                    <span class="account-form__span2" id="last_result_string">
+                        <p th:text="${{lastPpm?.value}}"></p>
+                    </span>
+                    <span class="account-form__span2" id="date_string">
+                        <p th:text=${{lastPpm?.timestamp}}></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- ... (reszta kodu bez zmian) ... -->
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+        var age = document.getElementById("age").value;
+
+        if (height<=0) {
+            alert("Height must not be equal to or less than zero!");
+            return false;
+        }
+        if (weight<=0) {
+            alert("Weight must not be equal to or less than zero");
+            return false;
+        }
+        if (age<=0) {
+            alert("Age must not be equal to or less than zero");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
