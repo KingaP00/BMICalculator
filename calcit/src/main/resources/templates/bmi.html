@@ -29,12 +29,10 @@
 
             <nav class="navigation__nav">
                 <ul class="navigation__list">
-                    <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>PPM Calculator</a></li>
-                    <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>05</span>PRAL Calculator</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link"><span>06</span>YMCA Calculator</a></li>
+                    <li class="navigation__item"><a th:href="@{/navigation}" class="navigation__link"><span>01</span>Home</a></li>
+                    <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>02</span>PRAL Calculator</a></li>
+                    <li class="navigation__item"><a th:href="@{/ppm}" class="navigation__link"><span>03</span>PPM Calculator</a></li>
+                    <li class="navigation__item"><a th:href="@{/ymca}" class="navigation__link"><span>04</span>YMCA Calculator</a></li>
                 </ul>
             </nav>
         </div>
@@ -44,8 +42,8 @@
         </div>
 
         <div class="header">
-            <a href="" class="header__element">Home</a>
-            <a href="" class="header__element header__element--active">BMI</a>
+            <a th:href="@{/navigation}" class="header__element">Home</a>
+            <a th:href="@{/bmi}" class="header__element header__element--active">BMI</a>
         </div>
 
         <div class="calculator__container">

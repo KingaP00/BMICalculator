@@ -29,13 +29,10 @@
 		
 				<nav class="navigation__nav">
 					<ul class="navigation__list">
-						<li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
-						<li class="navigation__item"><a th:href="@{/registration}"  class="navigation__link"><span>02</span>Sign Up</a></li>
-						<li class="navigation__item"><a th:href="@{/login}"  class="navigation__link"><span>03</span>Log In</a></li>
-						<li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>04</span>BMI Calculator</a></li>
-						<li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>05</span>PRAL Calculator</a></li>
-						<li class="navigation__item"><a href="#" class="navigation__link"><span>06</span>PPM Calculator</a></li>
-						<li class="navigation__item"><a href="#" class="navigation__link"><span>07</span>YMCA Calculator</a></li>
+						<li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>01</span>BMI Calculator</a></li>
+						<li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>02</span>PRAL Calculator</a></li>
+						<li class="navigation__item"><a th:href="@{/ppm}" class="navigation__link"><span>03</span>PPM Calculator</a></li>
+						<li class="navigation__item"><a th:href="@{/ymca}" class="navigation__link"><span>04</span>YMCA Calculator</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -49,7 +46,6 @@
 					<span class="heading-primary--sub">Start now and check what we offer: </span>
 				</h1>
 
-				<a th:href="@{/createaccount}" class="btn btn--green btn--less-padding">Create account</a>
 				<a th:href="@{/bmi}" class="btn btn--gray btn--less-padding">BMI Calculator</a>
                 <a th:href="@{/ppm}" class="btn btn--gray btn--less-padding">PPM Calculator</a>
                 <a th:href="@{/pral}" class="btn btn--gray btn--less-padding">PRAL Calculator</a>

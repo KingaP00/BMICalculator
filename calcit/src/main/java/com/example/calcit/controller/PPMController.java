@@ -38,12 +38,10 @@ public class PPMController {
     public ModelAndView calculatePPM(@ModelAttribute("ppmResult") PPMResult ppmResult) {
         double ppmValue = calculatePPMValue(ppmResult.getWeight(), ppmResult.getHeight()/100, 
         ppmResult.age);
-        //String nutritionalStatus = getNutritionalStatus(ppmValue);
 
         BigDecimal bd = new BigDecimal(ppmValue).setScale(2, RoundingMode.HALF_UP);  
         double newNum = bd.doubleValue();  
 
-        //ppmResult.setStatus(nutritionalStatus);
         ppmResult.setValue(newNum);
 
         ModelAndView mv = new ModelAndView("forward:/ppm");
@@ -62,10 +60,4 @@ public class PPMController {
         double ppm = 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age);
         return ppm;
     }
-    
-
-    // private String getNutritionalStatus(double ppm) {
-
-        
-    // }
 }

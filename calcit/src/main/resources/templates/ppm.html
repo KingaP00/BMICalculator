@@ -28,12 +28,10 @@
 
                 <nav class="navigation__nav">
                     <ul class="navigation__list">
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
-                        <li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>04</span>BMI Calculator</a></li>
-                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>05</span>PRAL Calculator</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>06</span>YMCA Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/navigation}" class="navigation__link"><span>01</span>Home</a></li>
+                        <li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>02</span>BMI Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>03</span>PRAL Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/ymca}" class="navigation__link"><span>04</span>YMCA Calculator</a></li>
                     </ul>
                 </nav>
             </div>
@@ -43,14 +41,14 @@
             </div>
 
             <div class="header">
-                <a href="" class="header__element">Home</a>
-                <a href="" class="header__element header__element--active">PPM</a>
+                <a th:href="@{/navigation}" class="header__element">Home</a>
+                <a th:href="@{/ppm}" class="header__element header__element--active">PPM</a>
             </div>
 
             <div class="calculator__container">
                 <div class="calculator__calculate-container">
                     <div class="calculator__form">
-                        <form>
+                        <form th:action="@{/calculatePPM}" th:object="${ppmResult}" onsubmit="return validateForm()">
                             <p class="calculator__title">Calculate PPM</p>
 
                             <div class="calculator__element" >
@@ -63,17 +61,17 @@
                             
                             <div class="calculator__element" >
                                 <label for="weight">Weight:</label>
-                                <input type="number" class="calculator__input" placeholder="kg" id="weight" name="weight"/>
+                                <input type="number" class="calculator__input" placeholder="kg" id="weight" name="weight" th:field="*{weight}"/>
                             </div>
 
                             <div class="calculator__element" >
                                 <label for="height">Height:</label>
-                                <input type="number" class="calculator__input" placeholder="cm" id="height" name="height"/>
+                                <input type="number" class="calculator__input" placeholder="cm"  id="height" name="height" th:field="*{height}"/>
                             </div>
 
                             <div class="calculator__element" >
                                 <label for="age">Age:</label>
-                                <input type="number" class="calculator__input" id="age" name="age"/>
+                                <input type="number" class="calculator__input" id="age" name="age" th:field="*{age}"/>
                             </div>
 
                             <button type="submit" class="btn btn--green btn--form">Calculate</button>
@@ -86,8 +84,22 @@
                     <div class="calculator__circle-container">
                         <span class="calculator__name">Your PPM:</span>
                         <div class="calculator__circle-wrapper">
-                            <p class="calculator__result">18.8</p>
+                            <div class="ppm_result">
+                                <span class="calculator__result" id="ppm_result">
+                                    <p th:text="${ppmResultValues?.value}"></p>
+                                </span>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="ppm__last-result">
+                        <span class="calculator__result--white">Last value:</span>
+                        <span class="calculator__result--white" id="last_result_string">
+                            <p th:text="${{lastPpm?.value}}"></p>
+                        </span>
+                        <span class="calculator__result--white" id="date_string">
+                            <p th:text=${{lastPpm?.timestamp}}></p>
+                        </span>
                     </div>
 
                     <picture>
@@ -101,6 +113,29 @@
             <img th:src="@{/images/equal-sign.png}" alt="" class="main-container__sign main-container__equal">
         </div>
     </div>
+
+    <script>
+        function validateForm() {
+            var weight = document.getElementById("weight").value;
+            var height = document.getElementById("height").value;
+            var age = document.getElementById("age").value;
+    
+            if (height<=0) {
+                alert("Height must not be equal to or less than zero!");
+                return false;
+            }
+            if (weight<=0) {
+                alert("Weight must not be equal to or less than zero");
+                return false;
+            }
+            if (age<=0) {
+                alert("Age must not be equal to or less than zero");
+                return false;
+            }
+    
+            return true;
+        }
+    </script>
 
 </body>
 

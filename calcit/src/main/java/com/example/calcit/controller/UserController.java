@@ -36,7 +36,7 @@ public class UserController {
     @GetMapping("/login/loginUser")
     public ModelAndView checksLogin(@ModelAttribute("user") User user) {
         if (userService.checkLogin(user.getEmail(), user.getPassword())) {
-            return new ModelAndView("redirect:/");
+            return new ModelAndView("redirect:/navigation");
         } else {
             ModelAndView modelAndView = new ModelAndView("redirect:/login");
             modelAndView.addObject("error", "Invalid email or password");
