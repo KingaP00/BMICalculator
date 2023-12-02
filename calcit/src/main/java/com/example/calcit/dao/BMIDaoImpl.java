@@ -17,7 +17,7 @@ public class BMIDaoImpl implements BMIDao {
     public void saveOrUpdate(BMI bmiResult) {
         sessionFactory.getCurrentSession().saveOrUpdate(bmiResult);
     }
-
+           
     @Override
     public void delete(int id) {
         BMI bmiResult = (BMI) sessionFactory.getCurrentSession().load(BMI.class, id);

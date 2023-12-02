@@ -11,7 +11,7 @@
         position: relative;
         height: 100%;
         width: 100%;
-        background-image: url('/BMICalculator/calcit/src/main/resources/img/inside-background.png');
+        background-image: url('../../images/inside-background.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -19,7 +19,7 @@
         box-shadow: -10px 10px 40px 0px rgba(0, 0, 0, 0.50);
 
         @include respond(phone) {
-            background-image: url('/BMICalculator/calcit/src/main/resources/img/inside-background-mobile.png');
+            background-image: url('../../images/inside-background-mobile.png');
         }
     }
 
@@ -58,7 +58,7 @@
         }
 
         @include respond(phone) {
-            height: 45%;
+            height: 35%;
         }
     }
 
@@ -74,6 +74,50 @@
 
         @include respond(phone) {
             height: 12%;
+        }
+    }
+
+    &__sign {
+        position: absolute;
+
+        @include respond(tab-port) {
+            width: 40%;
+        }
+    }
+
+    &__multiplication {
+        right: 55rem;
+        bottom: -2rem;
+
+        @include respond(tab-port) {
+            right: 0;
+            bottom: -15rem;
+        }
+
+        @include respond(tab-land) {
+            right: 20rem;
+        }
+    }
+
+    &__plus {
+        rotate: -48deg;
+        right: 18rem;
+        top: -5rem;
+
+        @include respond(tab-port) {
+            right: -4rem;
+            top: 10rem;
+        }
+    }
+
+    &__equal {
+        rotate: -48deg;
+        bottom: -4rem;
+        left: 4rem;
+
+        @include respond(tab-port) {
+            bottom: -18rem;
+            left: 23rem;
         }
     }
 }

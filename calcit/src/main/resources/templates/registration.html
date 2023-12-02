@@ -17,46 +17,82 @@
 
 <body>
 	<div class="main-container registration">
-		<!-- ... (the rest of your HTML code) -->
+		<div class="main-container__inside-background">
 
-
-		<div class="registration__left-container">
-			<div class="account-form">
-				<!-- Registration form with validation -->
-				<form th:action="@{/registration/save}" th:object="${user}" class="account-form__container" onsubmit="return validateForm()">
-					<p class="account-form__title">Create account</p>
-					<div class="account-form__element">
-						<!-- Input field for login -->
-						<input type="text" name="login" th:field="*{login}" class="account-form__input"
-							placeholder="Enter your login" id="login" required>
-					</div>
-					<div class="account-form__element">
-						<!-- Input field for email -->
-						<input type="email" class="account-form__input" name="email" th:field="*{email}"
-							placeholder="Enter your email" id="email" required>
-					</div>
-					<div class="account-form__element">
-						<!-- Input field for password -->
-						<input type="password" name="password" th:field="*{password}" 
-							class="account-form__input" placeholder="Enter your password" id="password" required>
-					</div>
-					<div class="account-form__element">
-						<!-- Input field to confirm password -->
-						<input type="password" class="account-form__input" 
-							placeholder="Confirm your password" id="confirm-password" required>
-					</div>
-					<p class="account-form__text">Already have an account? <a th:href="@{/login}"
-							class="account-form__text account-form__text--green">Log in</a></p>
-					<button type="submit" class="btn btn--green btn--form">Sign up</button>
-				</form>
+			<div class="navigation">
+				<input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+		
+				<label for="navi-toggle" class="navigation__button">
+					<span class="navigation__icon">&nbsp;</span>
+				</label>
+		
+				<div class="navigation__background">&nbsp;</div>
+		
+				<nav class="navigation__nav">
+					<ul class="navigation__list">
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Home</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Sign Up</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Log In</a></li>
+						<li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>04</span>BMI Calculator</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>PPM Calculator</a></li>
+						<li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>04</span>PRAL Calculator</a></li>
+						<li class="navigation__item"><a href="#" class="navigation__link"><span>06</span>YMCA Calculator</a></li>
+					</ul>
+				</nav>
 			</div>
-			<picture>
-				<source media="(min-width:600px)" srcset="BMICalculator/calcit/src/main/resources/img/line.svg">
-				<img src="BMICalculator/calcit/src/main/resources/img/line-mobile.svg" alt=""
-					class="registration__line">
-			</picture>
-		</div>
 
+			<div class="main-container__logo-box">
+				<img th:src="@{/images/logo.svg}" alt="Logo" class="main-container__logo">
+			</div>
+
+			<div class="header">
+				<a href="" class="header__element">Home</a>
+				<a href="" class="header__element header__element--active">Sign up</a>
+			</div>
+
+			<div class="registration__background">
+				<div class="registration__left-container">
+					<div class="account-form">
+						<!-- Registration form with validation -->
+						<form th:action="@{/registration/save}" th:object="${user}" class="account-form__container" onsubmit="return validateForm()">
+							<p class="account-form__title">Create account</p>
+							<div class="account-form__element">
+								<!-- Input field for login -->
+								<input type="text" name="login" th:field="*{login}" class="account-form__input"
+									placeholder="Enter your login" id="login" required>
+							</div>
+							<div class="account-form__element">
+								<!-- Input field for email -->
+								<input type="email" class="account-form__input" name="email" th:field="*{email}"
+									placeholder="Enter your email" id="email" required>
+							</div>
+							<div class="account-form__element">
+								<!-- Input field for password -->
+								<input type="password" name="password" th:field="*{password}" 
+									class="account-form__input" placeholder="Enter your password" id="password" required>
+							</div>
+							<div class="account-form__element">
+								<!-- Input field to confirm password -->
+								<input type="password" class="account-form__input" 
+									placeholder="Confirm your password" id="confirm-password" required>
+							</div>
+							<p class="account-form__text">Already have an account? <a th:href="@{/login}"
+									class="account-form__text account-form__text--green">Log in</a></p>
+							<button type="submit" class="btn btn--green btn--form">Sign up</button>
+						</form>
+					</div>
+					<picture>
+						<source media="(min-width:600px)" th:srcset="@{/images/line.svg}">
+						<img th:src="@{/images/line-mobile.svg}" alt="" class="registration__line">
+					</picture>
+				</div>
+				<div class="registration__right-container">
+					<img th:src="@{/images/hand.png}" alt="" class="registration__hand">
+				</div>
+			</div>
+			<img th:src="@{/images/food.png}" alt="" class="main-container__food">
+        	<img th:src="@{/images/fork.png}" alt="" class="main-container__fork">
+		</div>
 
 	</div>
 
