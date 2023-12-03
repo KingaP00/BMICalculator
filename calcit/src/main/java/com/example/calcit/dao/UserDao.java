@@ -16,5 +16,5 @@ public interface UserDao {
 
 	public List<User> getUser(int id);
     
-	public boolean checkLogin(String email, String password);
+	public int checkLogin(String email, String password);
 }

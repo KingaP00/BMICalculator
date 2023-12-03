@@ -14,44 +14,53 @@ import com.example.calcit.model.PPM;
 import com.example.calcit.model.PPMResult;
 import com.example.calcit.service.PPMService;
 
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PPMController {
 
     @Autowired
-	private PPMService ppmService;
+    private PPMService ppmService;
 
     @GetMapping("/ppm")
-    public String calculate(@ModelAttribute("ppmResult") PPMResult ppmResult, @ModelAttribute("lastPpm") PPM ppm) {
-        List<PPM> ppms = ppmService.getAllPPMResults();
-        if(ppms.size()>0){
-            PPM lastPPM = ppms.get(ppms.size()-1);
-            BigDecimal bd = new BigDecimal(lastPPM.getValue()).setScale(2, RoundingMode.HALF_UP);  
-            double newNum = bd.doubleValue();  
-            ppm.setTimestamp(lastPPM.getTimestamp());
-            ppm.setValue(newNum);
+    public String calculate(@ModelAttribute("ppmResult") PPMResult ppmResult, @ModelAttribute("lastPpm") PPM ppm,
+            HttpSession session) {
+
+        if (session.getAttribute("userid") != null) {
+            int userid = Integer.parseInt(session.getAttribute("userid").toString());
+            List<PPM> ppms = ppmService.getPPMResultsForUser(userid);
+            if (ppms.size() > 0) {
+                PPM lastPPM = ppms.get(ppms.size() - 1);
+                BigDecimal bd = new BigDecimal(lastPPM.getValue()).setScale(2, RoundingMode.HALF_UP);
+                double newNum = bd.doubleValue();
+                ppm.setTimestamp(lastPPM.getTimestamp());
+                ppm.setValue(newNum);
+            }
         }
         return "ppm";
     }
 
     @GetMapping("/calculatePPM")
-    public ModelAndView calculatePPM(@ModelAttribute("ppmResult") PPMResult ppmResult) {
-        double ppmValue = calculatePPMValue(ppmResult.getWeight(), ppmResult.getHeight()/100, 
-        ppmResult.age);
+    public ModelAndView calculatePPM(@ModelAttribute("ppmResult") PPMResult ppmResult, HttpSession session) {
+        double ppmValue = calculatePPMValue(ppmResult.getWeight(), ppmResult.getHeight() / 100,
+                ppmResult.age);
 
-        BigDecimal bd = new BigDecimal(ppmValue).setScale(2, RoundingMode.HALF_UP);  
-        double newNum = bd.doubleValue();  
+        BigDecimal bd = new BigDecimal(ppmValue).setScale(2, RoundingMode.HALF_UP);
+        double newNum = bd.doubleValue();
 
         ppmResult.setValue(newNum);
 
         ModelAndView mv = new ModelAndView("forward:/ppm");
         mv.addObject("ppmResultValues", ppmResult);
 
-        PPM ppm = new PPM();
-        ppm.setValue(ppmValue);
-        ppm.setUserId(1);
-        ppm.setTimestamp(Timestamp.from(Instant.now()));
-        ppmService.saveOrUpdate(ppm);
+        if (session.getAttribute("userid") != null) {
+            int userid = Integer.parseInt(session.getAttribute("userid").toString());
+            PPM ppm = new PPM();
+            ppm.setValue(ppmValue);
+            ppm.setUserId(userid);
+            ppm.setTimestamp(Timestamp.from(Instant.now()));
+            ppmService.saveOrUpdate(ppm);
+        }
 
         return mv;
     }

@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.calcit.model.User;
 import com.example.calcit.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class UserController {
@@ -34,10 +36,13 @@ public class UserController {
     }
 
     @GetMapping("/login/loginUser")
-    public ModelAndView checksLogin(@ModelAttribute("user") User user) {
-        if (userService.checkLogin(user.getEmail(), user.getPassword())) {
+    public ModelAndView checksLogin(@ModelAttribute("user") User user, HttpSession session) {
+        int userid = userService.checkLogin(user.getEmail(), user.getPassword());
+        if (userid != -1) {
+            session.setAttribute("userid", userid);
             return new ModelAndView("redirect:/navigation");
         } else {
+            session.setAttribute("userid", null);
             ModelAndView modelAndView = new ModelAndView("redirect:/login");
             modelAndView.addObject("error", "Invalid email or password");
             return modelAndView;
@@ -48,4 +53,11 @@ public class UserController {
 	    userService.saveOrUpdate(user);
 	    return new ModelAndView("redirect:/");
 	}
+
+    @GetMapping("/logout")
+    public ModelAndView logout(HttpSession session) {
+        session.setAttribute("userid", null);
+        return new ModelAndView("redirect:/");
+        
+    }
 }
