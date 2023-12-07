@@ -84,6 +84,16 @@
                     </div>
                 </div>
 
+                <div class="ymca__last-result">
+                    <span class="calculator__result--white">Last value:</span>
+                    <span class="calculator__result--white" id="last_result_string">
+        <p th:text="${{lastYMCA?.value}}"></p>
+    </span>
+                    <span class="calculator__result--white" id="date_string">
+        <p th:text="${{lastYMCA?.timestamp}}"></p>
+    </span>
+                </div>
+
                 <picture>
                     <source media="(min-width:600px)" th:srcset="@{/images/bmi-line.png}">
                     <img th:src="@{/images/bmi-line-mobile.png}" alt="" class="calculator__line">
