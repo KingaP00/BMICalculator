@@ -20,7 +20,7 @@ Enter the required input values.
 Click the "Calculate" button.
 View the results on the screen.
 
-- Technologies Used
+## Technologies Used
 - Java
 - Spring Boot
 - Thymeleaf
