@@ -7,12 +7,14 @@
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;500&family=Readex+Pro:wght@500&display=swap"
+        rel="stylesheet">
     <title>PPM Calculator</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/" />
 </head>
+
 <body>
     <div class="main-container calculator">
         <div class="main-container__inside-background">
@@ -28,10 +30,15 @@
 
                 <nav class="navigation__nav">
                     <ul class="navigation__list">
-                        <li class="navigation__item"><a th:href="@{/navigation}" class="navigation__link"><span>01</span>Home</a></li>
-                        <li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>02</span>BMI Calculator</a></li>
-                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>03</span>PRAL Calculator</a></li>
-						<li class="navigation__item"><a th:href="@{/ppm}" class="navigation__link"><span>04</span>PPM Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/navigation}"
+                                class="navigation__link"><span>01</span>Home</a></li>
+
+                        <li class="navigation__item"><a th:href="@{/bmi}" class="navigation__link"><span>02</span>BMI
+                                Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/pral}" class="navigation__link"><span>03</span>PRAL
+                                Calculator</a></li>
+                        <li class="navigation__item"><a th:href="@{/ppm}" class="navigation__link"><span>04</span>PPM
+                                Calculator</a></li>
                     </ul>
                 </nav>
             </div>
@@ -48,25 +55,27 @@
             <div class="calculator__container">
                 <div class="calculator__calculate-container">
                     <div class="calculator__form">
-                        <form onsubmit="return validateForm()">
+                        <form th:action="@{/calculateYMCA}" th:object="${ymcaResult}" onsubmit="return validateForm()">
                             <p class="calculator__title">Calculate YMCA</p>
 
-                            <div class="calculator__element" >
+                            <div class="calculator__element">
                                 <label for="sex">Sex:</label>
-                                <select  class="calculator__select" name="sex" id="sex">
+                                <select class="calculator__select" name="sex" id="sex" th:field="*{sex}">
                                     <option value="female">female</option>
                                     <option value="male">male</option>
                                 </select>
                             </div>
-                            
-                            <div class="calculator__element" >
+
+                            <div class="calculator__element">
                                 <label for="weight">Weight:</label>
-                                <input type="number" class="calculator__input" placeholder="kg" id="weight" name="weight"/>
+                                <input type="number" class="calculator__input" placeholder="kg" id="weight"
+                                    name="weight" th:field="*{weight}" />
                             </div>
 
-                            <div class="calculator__element" >
+                            <div class="calculator__element">
                                 <label for="Waist">Waist:</label>
-                                <input type="number" class="calculator__input" placeholder="cm" id="waist" name="waist"/>
+                                <input type="number" class="calculator__input" placeholder="cm" id="waist" name="waist"
+                                    th:field="*{waistCircumference}" />
                             </div>
 
                             <button type="submit" class="btn btn--green btn--form">Calculate</button>
@@ -79,8 +88,25 @@
                     <div class="calculator__circle-container">
                         <span class="calculator__name">Your YMCA:</span>
                         <div class="calculator__circle-wrapper">
-                            <p class="calculator__result">18.8</p>
+                            <div class="bmi__result">
+                                <span class="calculator__result" id="bmi_result">
+                                    <p th:text="${ymcaResultValues?.value}"></p>
+                                </span>
+                                <span class="calculator__result" id="result_string">
+                                    <p th:text="${ymcaResultValues?.status}"></p>
+                                </span>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="ymca__last-result">
+                        <span class="calculator__result--white">Last value:</span>
+                        <span class="calculator__result--white" id="last_result_string">
+                            <p th:text="${{lastYmca?.value}}"></p>
+                        </span>
+                        <span class="calculator__result--white" id="date_string">
+                            <p th:text="${{lastYmca?.timestamp}}"></p>
+                        </span>
                     </div>
 
                     <picture>
@@ -89,29 +115,31 @@
                     </picture>
                 </div>
             </div>
-            <img th:src="@{/images/multiplication-sign.png}" alt="" class="main-container__sign main-container__multiplication">
-        	<img th:src="@{/images/plus-sign.png}" alt="" class="main-container__sign main-container__plus">
+            <img th:src="@{/images/multiplication-sign.png}" alt=""
+                class="main-container__sign main-container__multiplication">
+            <img th:src="@{/images/plus-sign.png}" alt="" class="main-container__sign main-container__plus">
             <img th:src="@{/images/equal-sign.png}" alt="" class="main-container__sign main-container__equal">
         </div>
     </div>
 
-<script>
-    function validateForm() {
-        var weight = document.getElementById("weight").value;
-        var waist = document.getElementById("waist").value;
+    <script>
+        function validateForm() {
+            var weight = document.getElementById("weight").value;
+            var waist = document.getElementById("waist").value;
 
-        if (height <= 0) {
-            alert("Height must not be equal to or less than zero!");
-            return false;
-        }
-        if (waist <= null) {
-            alert("Weight must not be equal to or less than zero");
-            return false;
-        }
+            if (weight <= 0) {
+                alert("Weight must not be equal to or less than zero!");
+                return false;
+            }
+            if (waist <= null) {
+                alert("Waist must not be equal to or less than zero");
+                return false;
+            }
 
-        return true;
-    }
-</script>   
- 
+            return true;
+        }
+    </script>
+
 </body>
+
 </html>
