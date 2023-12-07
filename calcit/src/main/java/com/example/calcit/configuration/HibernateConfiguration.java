@@ -3,6 +3,7 @@ package com.example.calcit.configuration;
 import java.util.Properties;
 import javax.sql.DataSource;
 
+import com.example.calcit.model.YMCA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
@@ -52,7 +53,7 @@ public class HibernateConfiguration {
     @Bean(name="entityManagerFactory")
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setAnnotatedClasses(new Class[] { User.class, BMI.class, PRAL.class, PPM.class });
+        sessionFactory.setAnnotatedClasses(new Class[] { User.class, BMI.class, PRAL.class,YMCA.class, PPM.class });
         
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
