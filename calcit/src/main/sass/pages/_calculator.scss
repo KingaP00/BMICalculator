@@ -51,6 +51,14 @@
       
     }
 
+    &__result-container {
+        min-height: fit-content;
+
+        @include respond(tab-port) {
+            height: fit-content;
+        }
+    }
+
     &__title {
         color: $color-white;
         position: absolute;
@@ -111,6 +119,10 @@
         &--white {
             color: $color-white;
         }
+
+        &--green {
+            color: $color-primary;
+        }
     }
 
     &__element {
@@ -118,10 +130,6 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
-
-        @include respond(tab-port) {
-            width: 20rem;
-        }
 
         @include respond(big-desktop) {
             width: 40rem;
@@ -174,6 +182,6 @@
     }
 }
 
-.bmi__last-result {
+.bmi__last-result, .ymca__last-result, .pral__last-result {
     margin-top: 2rem;
 }

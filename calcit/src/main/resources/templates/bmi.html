@@ -76,14 +76,14 @@
                             <span class="calculator__result" id="bmi_result">
                                 <p th:text="${bmiResultValues?.value}"></p>
                             </span>
-                            <span class="calculator__result" id="result_string">
-                                <p th:text="${bmiResultValues?.status}"></p>
-                            </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="bmi__last-result">
+                    <span class="calculator__result calculator__result--green" id="result_string">
+                        <p th:text="${bmiResultValues?.status}"></p>
+                    </span>
                     <span class="calculator__result--white">Last value:</span>
                     <span class="calculator__result--white" id="last_result_string">
                         <p th:text="${{lastBmi?.value}}"></p>
