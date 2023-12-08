@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,7 +60,7 @@ public class BMIController {
             BMI bmi = new BMI();
             bmi.setValue(bmiValue);
             bmi.setUserId(userid);
-            bmi.setTimestamp(Timestamp.from(Instant.now()));
+            bmi.setTimestamp(Timestamp.from(Instant.now().truncatedTo(ChronoUnit.MINUTES)));
             bmiService.saveOrUpdate(bmi);
         }
 
