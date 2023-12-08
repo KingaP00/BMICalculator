@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class YMCAController {
             YMCA ymca = new YMCA();
             ymca.setValue(ymcaValue);
             ymca.setUserId(userid);
-            ymca.setTimestamp(Timestamp.from(Instant.now()));
+            ymca.setTimestamp(Timestamp.from(Instant.now().truncatedTo(ChronoUnit.MINUTES)));
             ymcaService.saveOrUpdate(ymca);
         }
 
