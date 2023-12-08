@@ -5,9 +5,13 @@ Calcit is a web application that enables users to calculate various health-relat
 ## Features
 
 - *BMI Calculator:* Calculate Body Mass Index (BMI) based on weight and height.
+ ![](calcit/src/main/resources/images/BMI.png)
 - *YMCA Calculator:* Estimate abdominal obesity risk using the YMCA formula.
+  ![](calcit/src/main/resources/images/YMCA.png)
 - *PPM Calculator:* Calculate Basal Metabolic Rate (BMR) using the Harris-Benedict equation.
+  ![](calcit/src/main/resources/images/PPM.png)
 - *PRAL Calculator:* Calculate Potential Renal Acid Load (PRAL) based on dietary intake.
+  ![](calcit/src/main/resources/images/PRAL.png)
 	
 ## Installation
 
