@@ -1,6 +1,7 @@
 # Calcit - Fitness Calculator
 
 Calcit is a web application that enables users to calculate various health-related metrics, including BMI, YMCA, PPM, and PRAL.
+ ![](calcit/src/main/resources/images/Start.png)
 
 ## Features
 
@@ -19,6 +20,10 @@ Calcit is a web application that enables users to calculate various health-relat
 ```bash git clone https://github.com/KingaP00/BMICalculators ```
 
 ## Usage
+Create an account 
+ ![](calcit/src/main/resources/images/Registration.png)
+and log in
+![](calcit/src/main/resources/images/Log_in.png)
 Choose the calculator you want to use from the navigation menu.
 Enter the required input values.
 Click the "Calculate" button.
