@@ -24,7 +24,8 @@ Create an account
  ![](calcit/src/main/resources/images/Registration.png)
 and log in
 ![](calcit/src/main/resources/images/Log_in.png)
-Choose the calculator you want to use from the navigation menu.
+Next choose the calculator you want to use from the navigation menu.
+![](calcit/src/main/resources/images/Navigation.png)
 Enter the required input values.
 Click the "Calculate" button.
 View the results on the screen.
