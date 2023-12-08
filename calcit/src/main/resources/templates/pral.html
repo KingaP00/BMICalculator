@@ -90,14 +90,14 @@
                                 <span class="calculator__result" id="pral_result">
                                     <p th:text="${pralResultValues?.value}"></p>
                                 </span>
-                            <span class="calculator__result" id="result_string">
-                                    <p th:text="${pralResultValues?.status}"></p>
-                                </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="pral__last-result">
+                    <span class="calculator__result calculator__result--green" id="result_string">
+                        <p th:text="${pralResultValues?.status}"></p>
+                    </span>
                     <span class="calculator__result--white">Last value:</span>
                     <span class="calculator__result--white" id="last_result_string">
                             <p th:text="${{lastPral?.value}}"></p>
