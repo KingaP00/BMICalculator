@@ -17,8 +17,8 @@ Calcit is a web application that enables users to calculate various health-relat
 ```git clone https://github.com/KingaP00/BMICalculators```
 2. To connect to the database, you need to first create it in MySQL Workbench and name it "calcit." Then, run the db.sql file located in the resources folder – tables should be generated for you. In the same folder, there's an application.properties file where you need to input the appropriate username and password for MySQL. When you run the project, the console should display a message indicating that it is running.
 3. Use command:
-	a.  ```npm install``` - Installing all possible packages defined in the package.json file in all its sections – dependencies, devDependencies, peerDependencies, optionalDependencies (those that are not required for the package to function).
-	b. ``` npm run compile:sass ``` - Compiling SCSS into plain CSS.
+	-  ```npm install``` - Installing all possible packages defined in the package.json file in all its sections – dependencies, devDependencies, peerDependencies, optionalDependencies (those that are not required for the package to function).
+	- ``` npm run compile:sass ``` - Compiling SCSS into plain CSS.
 
 ## Usage
 Create an account and log in.
