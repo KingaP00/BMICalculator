@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean checkLogin(String email, String password) {
+	public int checkLogin(String email, String password){
 		return userDao.checkLogin(email, password);
 	}
 }

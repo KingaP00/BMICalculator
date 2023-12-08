@@ -14,33 +14,39 @@ import com.example.calcit.model.BMI;
 import com.example.calcit.model.BMIResult;
 import com.example.calcit.service.BMIService;
 
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class BMIController {
 
     @Autowired
-	private BMIService bmiService;
+    private BMIService bmiService;
 
     @GetMapping("/bmi")
-    public String calculate(@ModelAttribute("bmiResult") BMIResult bmiResult, @ModelAttribute("lastBmi") BMI bmi) {
-        List<BMI> bmis = bmiService.getAllBMIResults();
-        if(bmis.size()>0){
-            BMI lastBMI = bmis.get(bmis.size()-1);
-            BigDecimal bd = new BigDecimal(lastBMI.getValue()).setScale(2, RoundingMode.HALF_UP);  
-            double newNum = bd.doubleValue();  
-            bmi.setTimestamp(lastBMI.getTimestamp());
-            bmi.setValue(newNum);
+    public String calculate(@ModelAttribute("bmiResult") BMIResult bmiResult, @ModelAttribute("lastBmi") BMI bmi,
+            HttpSession session) {
+
+        if (session.getAttribute("userid") != null) {
+            int userid = Integer.parseInt(session.getAttribute("userid").toString());
+            List<BMI> bmis = bmiService.getBMIResultsForUser(userid);
+            if (bmis.size() > 0) {
+                BMI lastBMI = bmis.get(bmis.size() - 1);
+                BigDecimal bd = new BigDecimal(lastBMI.getValue()).setScale(2, RoundingMode.HALF_UP);
+                double newNum = bd.doubleValue();
+                bmi.setTimestamp(lastBMI.getTimestamp());
+                bmi.setValue(newNum);
+            }
         }
         return "bmi";
     }
 
     @GetMapping("/calculateBMI")
-    public ModelAndView calculateBMI(@ModelAttribute("bmiResult") BMIResult bmiResult) {
-        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight()/100);
+    public ModelAndView calculateBMI(@ModelAttribute("bmiResult") BMIResult bmiResult, HttpSession session) {
+        double bmiValue = calculateBMIValue(bmiResult.getWeight(), bmiResult.getHeight() / 100);
         String nutritionalStatus = getNutritionalStatus(bmiValue);
 
-        BigDecimal bd = new BigDecimal(bmiValue).setScale(2, RoundingMode.HALF_UP);  
-        double newNum = bd.doubleValue();  
+        BigDecimal bd = new BigDecimal(bmiValue).setScale(2, RoundingMode.HALF_UP);
+        double newNum = bd.doubleValue();
 
         bmiResult.setStatus(nutritionalStatus);
         bmiResult.setValue(newNum);
@@ -48,18 +54,21 @@ public class BMIController {
         ModelAndView mv = new ModelAndView("forward:/bmi");
         mv.addObject("bmiResultValues", bmiResult);
 
-        BMI bmi = new BMI();
-        bmi.setValue(bmiValue);
-        bmi.setUserId(1);
-        bmi.setTimestamp(Timestamp.from(Instant.now()));
-        bmiService.saveOrUpdate(bmi);
+        if (session.getAttribute("userid") != null) {
+            int userid = Integer.parseInt(session.getAttribute("userid").toString());
+            BMI bmi = new BMI();
+            bmi.setValue(bmiValue);
+            bmi.setUserId(userid);
+            bmi.setTimestamp(Timestamp.from(Instant.now()));
+            bmiService.saveOrUpdate(bmi);
+        }
 
         return mv;
     }
 
     private double calculateBMIValue(double weight, double height) {
 
-        return (weight / (height * height)) ;
+        return (weight / (height * height));
     }
 
     private String getNutritionalStatus(double bmi) {
