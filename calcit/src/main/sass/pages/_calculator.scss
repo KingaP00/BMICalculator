@@ -127,12 +127,17 @@
 
     &__element {
         display: flex;
+        width: 30rem;
         justify-content: space-between;
         margin-bottom: 1rem;
 
         @include respond(big-desktop) {
             width: 40rem;
         }
+    }
+
+    &__label {
+        margin-right: 1rem;
     }
 
     &__input, &__select {
@@ -183,4 +188,9 @@
 
 .bmi__last-result, .ymca__last-result, .pral__last-result {
     margin-top: 2rem;
+}
+
+
+.calculator__element--pral {
+    width: auto;         
 }
