@@ -523,13 +523,15 @@ body {
     .calculator__result--green {
       color: #54EA54; }
   .calculator__element {
-    width: 30rem;
     display: flex;
+    width: 30rem;
     justify-content: space-between;
     margin-bottom: 1rem; }
     @media only screen and (min-width: 112.5em) {
       .calculator__element {
         width: 40rem; } }
+  .calculator__label {
+    margin-right: 1rem; }
   .calculator__input, .calculator__select {
     font-size: 1.2rem;
     font-family: inherit;
@@ -564,6 +566,9 @@ body {
 
 .bmi__last-result, .ymca__last-result, .pral__last-result {
   margin-top: 2rem; }
+
+.calculator__element--pral {
+  width: auto; }
 
 .navigation__checkbox {
   display: none; }
